@@ -1,0 +1,1567 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="supported-color-schemes" content="light" />
+    <title>馬六甲・吉隆坡・瓜拉雪蘭莪 攻略書｜9.12–9.17</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* 全部寫死顏色，不使用通用變數名，避免被外層樣式覆蓋 */
+      :root {
+        color-scheme: light only;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+        background: #f7f3ea !important;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f7f3ea !important;
+        color: #14202a !important;
+        font-family: "Noto Sans TC", "PingFang TC", "Heiti TC", sans-serif;
+        font-weight: 400;
+        font-size: 16.5px;
+        line-height: 1.75;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 20px 90px;
+      }
+
+      .tile-band {
+        height: 24px;
+        width: 100%;
+        display: block;
+      }
+      .tile-rule {
+        margin: 42px 0 28px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .tile-rule .ln {
+        flex: 1;
+        height: 2px;
+        background: #d8cdb8;
+      }
+      .tile-rule svg {
+        flex: none;
+      }
+
+      .cover {
+        padding: 34px 0 6px;
+      }
+      .kicker {
+        font-family: "Space Mono", monospace;
+        font-size: 11.5px;
+        letter-spacing: 0.2em;
+        color: #0a5f4c;
+        font-weight: 700;
+        margin: 0 0 14px;
+      }
+      .cover h1 {
+        font-family: "Noto Serif TC", serif;
+        font-weight: 900;
+        font-size: clamp(32px, 9vw, 50px);
+        line-height: 1.14;
+        margin: 0 0 14px;
+        color: #14202a;
+      }
+      .cover h1 em {
+        font-style: normal;
+        color: #8a5e08;
+        display: block;
+      }
+      .cover .sub {
+        color: #33434e;
+        font-size: 15.5px;
+        margin: 0 0 24px;
+        max-width: 34em;
+      }
+      .stamp {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .stamp span {
+        font-size: 12px;
+        font-weight: 700;
+        border: 1.5px solid #14202a;
+        border-radius: 999px;
+        padding: 5px 13px;
+        color: #14202a;
+        background: #ffffff;
+      }
+
+      h2 {
+        font-family: "Noto Serif TC", serif;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 1.35;
+        margin: 0 0 8px;
+        color: #14202a;
+      }
+      h2 .no {
+        font-family: "Space Mono", monospace;
+        font-size: 12.5px;
+        color: #0a5f4c;
+        display: block;
+        letter-spacing: 0.18em;
+        margin-bottom: 9px;
+        font-weight: 700;
+      }
+      h3 {
+        font-family: "Noto Serif TC", serif;
+        font-weight: 700;
+        font-size: 19px;
+        margin: 30px 0 10px;
+        color: #14202a;
+      }
+      p {
+        margin: 0 0 14px;
+        color: #22303a;
+      }
+      a {
+        color: #0a5f4c;
+        font-weight: 500;
+      }
+
+      .grid {
+        border-top: 2px solid #14202a;
+        margin: 18px 0 8px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 78px 1fr;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid #d8cdb8;
+        align-items: start;
+      }
+      .row .d {
+        font-family: "Space Mono", monospace;
+        font-size: 12.5px;
+        color: #8a5e08;
+        font-weight: 700;
+        padding-top: 3px;
+        line-height: 1.5;
+      }
+      .row .t {
+        font-size: 15.5px;
+        color: #14202a;
+        font-weight: 500;
+      }
+      .row .t small {
+        display: block;
+        color: #4a5a64;
+        font-size: 14px;
+        margin-top: 4px;
+        font-weight: 400;
+      }
+
+      .card {
+        background: #ffffff;
+        border: 1.5px solid #c7baa2;
+        border-radius: 7px;
+        padding: 18px;
+        margin: 0 0 12px;
+      }
+      .card h4 {
+        font-family: "Noto Serif TC", serif;
+        font-size: 18.5px;
+        font-weight: 700;
+        margin: 0 0 4px;
+        color: #14202a;
+        display: flex;
+        align-items: baseline;
+        gap: 9px;
+        flex-wrap: wrap;
+      }
+      .card h4 .en {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        color: #6b7a83;
+        font-weight: 400;
+      }
+      .meta {
+        font-size: 13.5px;
+        color: #0a5f4c;
+        margin: 0 0 10px;
+        line-height: 1.7;
+        font-weight: 700;
+      }
+      .meta.warn {
+        color: #a81f3c;
+      }
+      .card p {
+        margin: 0;
+        font-size: 15px;
+        color: #33434e;
+      }
+      .card p + p {
+        margin-top: 9px;
+      }
+
+      .day {
+        margin: 0 0 34px;
+      }
+      .day-head {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding-bottom: 11px;
+        border-bottom: 3px solid #8a5e08;
+        margin-bottom: 4px;
+      }
+      .day-head .dt {
+        font-family: "Space Mono", monospace;
+        font-size: 13.5px;
+        color: #8a5e08;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+      }
+      .day-head .nm {
+        font-family: "Noto Serif TC", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #14202a;
+      }
+      .day-note {
+        color: #33434e;
+        font-size: 14.5px;
+        margin: 13px 0 16px;
+        line-height: 1.7;
+      }
+      .tl {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .tl li {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        gap: 14px;
+        padding: 12px 0;
+        border-bottom: 1px solid #e0d6c4;
+      }
+      .tl li:last-child {
+        border-bottom: none;
+      }
+      .tl .hh {
+        font-family: "Space Mono", monospace;
+        font-size: 13px;
+        color: #0a5f4c;
+        padding-top: 4px;
+        font-weight: 700;
+      }
+      .tl .bb {
+        font-size: 15.5px;
+        color: #14202a;
+        font-weight: 500;
+      }
+      .tl .bb small {
+        display: block;
+        color: #4a5a64;
+        font-size: 14px;
+        margin-top: 4px;
+        line-height: 1.65;
+        font-weight: 400;
+      }
+
+      .flag {
+        border-left: 5px solid #a81f3c;
+        background: #fbeef0;
+        padding: 15px 17px;
+        margin: 18px 0;
+        font-size: 15px;
+        color: #22303a;
+      }
+      .flag b {
+        color: #a81f3c;
+        font-weight: 700;
+      }
+      .tipbox {
+        border-left: 5px solid #8a5e08;
+        background: #faf2e0;
+        padding: 15px 17px;
+        margin: 18px 0;
+        font-size: 15px;
+        color: #22303a;
+      }
+      .tipbox b {
+        color: #8a5e08;
+        font-weight: 700;
+      }
+
+      ul.check {
+        list-style: none;
+        padding: 0;
+        margin: 14px 0 0;
+      }
+      ul.check li {
+        padding: 12px 0 12px 32px;
+        border-bottom: 1px solid #d8cdb8;
+        position: relative;
+        font-size: 15px;
+        color: #33434e;
+      }
+      ul.check li:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 17px;
+        width: 15px;
+        height: 15px;
+        border: 2px solid #0a5f4c;
+        border-radius: 3px;
+      }
+      ul.check li b {
+        font-weight: 700;
+        color: #14202a;
+      }
+      ul.check li small {
+        display: block;
+        color: #4a5a64;
+        font-size: 14px;
+        margin-top: 3px;
+      }
+
+      figure {
+        margin: 20px 0 8px;
+      }
+      figure svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: #ffffff;
+        border: 1.5px solid #c7baa2;
+        border-radius: 7px;
+      }
+      figcaption {
+        font-size: 13.5px;
+        color: #4a5a64;
+        margin-top: 10px;
+        line-height: 1.7;
+      }
+
+      .eat {
+        border-top: 2px solid #14202a;
+      }
+      .eat div {
+        padding: 13px 0;
+        border-bottom: 1px solid #d8cdb8;
+        display: grid;
+        grid-template-columns: 118px 1fr;
+        gap: 14px;
+        font-size: 15px;
+        color: #14202a;
+      }
+      .eat div b {
+        font-weight: 700;
+      }
+      .eat div span {
+        color: #4a5a64;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      footer {
+        margin-top: 48px;
+        padding-top: 20px;
+        border-top: 2px solid #d8cdb8;
+        color: #5a6970;
+        font-size: 12.5px;
+        font-family: "Space Mono", monospace;
+        line-height: 1.9;
+      }
+
+      @media (max-width: 430px) {
+        .row {
+          grid-template-columns: 66px 1fr;
+          gap: 11px;
+        }
+        .tl li {
+          grid-template-columns: 52px 1fr;
+          gap: 11px;
+        }
+        .eat div {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 峇峇娘惹磁磚帶 -->
+    <svg
+      class="tile-band"
+      viewBox="0 0 360 26"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <pattern id="tile" width="26" height="26" patternUnits="userSpaceOnUse">
+          <rect width="26" height="26" fill="#FFFFFF" />
+          <path d="M13 3 L18 8 L13 13 L8 8 Z" fill="#0A5F4C" />
+          <path d="M13 13 L18 18 L13 23 L8 18 Z" fill="#A81F3C" opacity=".8" />
+          <circle cx="0" cy="13" r="2" fill="#8A5E08" />
+          <circle cx="26" cy="13" r="2" fill="#8A5E08" />
+        </pattern>
+      </defs>
+      <rect width="360" height="26" fill="url(#tile)" />
+    </svg>
+
+    <div class="wrap">
+      <header class="cover">
+        <p class="kicker">09.12 — 09.17 / 5 nights</p>
+        <h1>海峽三城<em>攻略書</em></h1>
+        <p class="sub">
+          馬六甲的老街與河、吉隆坡的洞穴與塔、瓜拉雪蘭莪的沙洲與螢火蟲。這本只放你這趟真的會用到的東西。
+        </p>
+        <div class="stamp">
+          <span>MELAKA · 2 NIGHTS</span>
+          <span>KUALA LUMPUR · 3 NIGHTS</span>
+          <span>KUALA SELANGOR · DAY</span>
+        </div>
+      </header>
+
+      <div class="tile-rule">
+        <span class="ln"></span>
+        <svg width="20" height="20" viewBox="0 0 20 20">
+          <path d="M10 1 L15 6 L10 11 L5 6 Z" fill="#8A5E08" />
+          <path d="M10 9 L15 14 L10 19 L5 14 Z" fill="#0A5F4C" />
+        </svg>
+        <span class="ln"></span>
+      </div>
+
+      <!-- ============ 總覽 ============ -->
+      <section>
+        <h2><span class="no">01 / OVERVIEW</span>行程總覽</h2>
+
+        <div class="grid">
+          <div class="row">
+            <div class="d">9/11 五</div>
+            <div class="t">
+              桃園機場報到<small
+                >飛機是 9/12 00:20 起飛，但你 9/11 晚上就要到機場</small
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="d">9/12 六</div>
+            <div class="t">
+              落地 → 馬六甲<small>東岸古蹟一條龍・週六雞場街・河夜遊</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="d">9/13 日</div>
+            <div class="t">
+              馬六甲整天<small
+                >西岸華人區・海峽清真寺・沙嗲朱律・週日雞場街</small
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="d">9/14 一</div>
+            <div class="t">
+              馬六甲 → 吉隆坡<small>舊城徒步大縱走・鬼仔巷・亞羅街</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="d">9/15 二</div>
+            <div class="t">
+              黑風洞 → 瓜拉雪蘭莪<small
+                >適耕莊稻田・餵老鷹・漁村海鮮・螢火蟲</small
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="d">9/16 三</div>
+            <div class="t">
+              湖濱公園博物館群<small
+                >飛禽公園・觀景台二選一・移住 KL Sentral</small
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="d">9/17 四</div>
+            <div class="t">
+              KLIA T1 出境<small>09:50 起飛，07:50 前要到航廈</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="flag">
+          <b>三個最容易出事的點。</b>一、出發是 9/11 週五晚上，不是
+          9/12。二、去程降落 klia2（T2），回程是從
+          <b>KLIA T1</b>
+          走，不同棟建築。三、雞場街夜市只有週五六日開，所以馬六甲必須排在
+          9/12、9/13 這個週末。
+        </div>
+      </section>
+
+      <div class="tile-rule">
+        <span class="ln"></span>
+        <svg width="20" height="20" viewBox="0 0 20 20">
+          <path d="M10 1 L15 6 L10 11 L5 6 Z" fill="#8A5E08" />
+          <path d="M10 9 L15 14 L10 19 L5 14 Z" fill="#0A5F4C" />
+        </svg>
+        <span class="ln"></span>
+      </div>
+
+      <!-- ============ 地圖 1：全程動線 ============ -->
+      <section>
+        <h2><span class="no">02 / MAPS</span>三張地圖</h2>
+
+        <h3>① 全程動線</h3>
+        <figure>
+          <svg viewBox="0 0 360 470" role="img" aria-label="全程交通動線圖">
+            <line
+              x1="60"
+              y1="34"
+              x2="60"
+              y2="436"
+              stroke="#C7BAA2"
+              stroke-width="1.5"
+            />
+
+            <g font-family="Space Mono, monospace">
+              <!-- TPE -->
+              <circle cx="60" cy="34" r="6" fill="#8A5E08" />
+              <text
+                x="82"
+                y="31"
+                fill="#14202A"
+                font-size="14"
+                font-family="Noto Sans TC, sans-serif"
+                font-weight="500"
+              >
+                桃園 TPE T1
+              </text>
+              <text x="82" y="48" fill="#4A5A64" font-size="10.5">
+                9/12 SAT 00:20 · AirAsia D7379
+              </text>
+              <text x="76" y="76" fill="#0A5F4C" font-size="10.5">✈ 4h40m</text>
+
+              <!-- KLIA2 -->
+              <circle cx="60" cy="104" r="6" fill="#0A5F4C" />
+              <text
+                x="82"
+                y="101"
+                fill="#14202A"
+                font-size="14"
+                font-family="Noto Sans TC, sans-serif"
+                font-weight="500"
+              >
+                klia2 · KUL T2
+              </text>
+              <text x="82" y="118" fill="#4A5A64" font-size="10.5">
+                05:00 抵達 · 出關約 06:00
+              </text>
+              <text x="76" y="146" fill="#0A5F4C" font-size="10.5">
+                🚌 直達巴士 2.5–3h · RM24–35
+              </text>
+
+              <!-- MELAKA -->
+              <circle cx="60" cy="174" r="6" fill="#A81F3C" />
+              <text
+                x="82"
+                y="171"
+                fill="#14202A"
+                font-size="14"
+                font-family="Noto Sans TC, sans-serif"
+                font-weight="500"
+              >
+                馬六甲 Melaka Sentral
+              </text>
+              <text x="82" y="188" fill="#4A5A64" font-size="10.5">
+                再 Grab 15 分鐘進古城 · RM12–15
+              </text>
+              <text x="76" y="216" fill="#0A5F4C" font-size="10.5">
+                🚌 Melaka → TBS 2h · RM12–16
+              </text>
+
+              <!-- KL -->
+              <circle cx="60" cy="244" r="6" fill="#8A5E08" />
+              <text
+                x="82"
+                y="241"
+                fill="#14202A"
+                font-size="14"
+                font-family="Noto Sans TC, sans-serif"
+                font-weight="500"
+              >
+                吉隆坡 TBS → 市區
+              </text>
+              <text x="82" y="258" fill="#4A5A64" font-size="10.5">
+                住 Bukit Bintang 兩晚，末晚換 KL Sentral
+              </text>
+              <text x="76" y="286" fill="#0A5F4C" font-size="10.5">
+                🚐 黑風洞上車，包車 1h（往西北）
+              </text>
+
+              <!-- KUALA SELANGOR -->
+              <circle cx="60" cy="314" r="6" fill="#0A5F4C" />
+              <text
+                x="82"
+                y="311"
+                fill="#14202A"
+                font-size="14"
+                font-family="Noto Sans TC, sans-serif"
+                font-weight="500"
+              >
+                瓜拉雪蘭莪（來回）
+              </text>
+              <text x="82" y="328" fill="#4A5A64" font-size="10.5">
+                9/15 從黑風洞直接接力，當晚回吉隆坡
+              </text>
+              <text x="76" y="356" fill="#0A5F4C" font-size="10.5">
+                🚆 KLIA Ekspres 28 分 · RM55
+              </text>
+
+              <!-- KLIA T1 -->
+              <circle cx="60" cy="384" r="6" fill="#A81F3C" />
+              <text
+                x="82"
+                y="381"
+                fill="#14202A"
+                font-size="14"
+                font-family="Noto Sans TC, sans-serif"
+                font-weight="500"
+              >
+                KLIA T1
+              </text>
+              <text x="82" y="398" fill="#4A5A64" font-size="10.5">
+                9/17 THU 09:50 · 07:50 前抵達
+              </text>
+
+              <circle
+                cx="60"
+                cy="436"
+                r="6"
+                fill="none"
+                stroke="#4A5A64"
+                stroke-width="1.5"
+              />
+              <text
+                x="82"
+                y="440"
+                fill="#4A5A64"
+                font-size="11.5"
+                font-family="Noto Sans TC, sans-serif"
+              >
+                下一段旅程
+              </text>
+            </g>
+          </svg>
+          <figcaption>
+            整趟只有兩段長途陸路，其餘都在單一城市內移動。
+          </figcaption>
+        </figure>
+
+        <h3>② 馬六甲古城步行圖</h3>
+        <figure>
+          <svg viewBox="0 0 360 500" role="img" aria-label="馬六甲古城步行地圖">
+            <!-- 河 -->
+            <path
+              d="M205 20 C185 90, 172 150, 156 215 C142 275, 122 330, 108 400 C102 435, 100 470, 100 495"
+              stroke="#BFD9E4"
+              stroke-width="17"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <path
+              d="M205 20 C185 90, 172 150, 156 215 C142 275, 122 330, 108 400 C102 435, 100 470, 100 495"
+              stroke="#1B5C87"
+              stroke-width="2"
+              fill="none"
+              stroke-dasharray="4 6"
+            />
+            <text
+              x="196"
+              y="60"
+              fill="#1B5C87"
+              font-size="10.5"
+              font-family="Space Mono, monospace"
+              transform="rotate(70 196 60)"
+            >
+              MELAKA RIVER
+            </text>
+
+            <!-- 步行連線 -->
+            <g
+              stroke="#8A5E08"
+              stroke-width="1.4"
+              stroke-dasharray="3 4"
+              fill="none"
+              opacity=".75"
+            >
+              <path d="M91 87 L85 189" />
+              <path d="M85 189 L173 213" />
+              <path d="M173 213 L223 237" />
+              <path d="M223 237 L239 319" />
+              <path d="M239 319 L280 355" />
+              <path d="M223 237 L101 309" />
+            </g>
+
+            <g
+              font-family="Noto Sans TC, sans-serif"
+              font-size="12"
+              font-weight="500"
+            >
+              <circle cx="91" cy="87" r="7" fill="#0A5F4C" />
+              <text x="104" y="84" fill="#14202A">青雲亭</text>
+              <text
+                x="104"
+                y="99"
+                fill="#4A5A64"
+                font-size="10"
+                font-family="Space Mono, monospace"
+              >
+                07:00–18:30 · FREE
+              </text>
+
+              <circle cx="85" cy="189" r="7" fill="#0A5F4C" />
+              <text x="98" y="186" fill="#14202A">峇峇娘惹博物館</text>
+              <text
+                x="98"
+                y="201"
+                fill="#A81F3C"
+                font-size="10"
+                font-family="Space Mono, monospace"
+              >
+                週二休 · 10:00–16:45 · RM25
+              </text>
+
+              <circle cx="173" cy="213" r="8" fill="#A81F3C" />
+              <text x="187" y="210" fill="#14202A">雞場街夜市</text>
+              <text
+                x="187"
+                y="225"
+                fill="#8A5E08"
+                font-size="10"
+                font-family="Space Mono, monospace"
+              >
+                五六日 18:00–24:00
+              </text>
+
+              <circle cx="223" cy="237" r="8" fill="#8A5E08" />
+              <text x="150" y="256" fill="#14202A">荷蘭紅屋廣場</text>
+              <text
+                x="150"
+                y="270"
+                fill="#4A5A64"
+                font-size="10"
+                font-family="Space Mono, monospace"
+              >
+                教堂內部週一休
+              </text>
+
+              <circle cx="101" cy="309" r="7" fill="#0A5F4C" />
+              <text x="14" y="330" fill="#14202A">河遊船碼頭</text>
+              <text
+                x="14"
+                y="344"
+                fill="#4A5A64"
+                font-size="10"
+                font-family="Space Mono, monospace"
+              >
+                09:00–23:00
+              </text>
+
+              <circle cx="239" cy="319" r="7" fill="#0A5F4C" />
+              <text x="252" y="316" fill="#14202A">聖保羅山</text>
+              <text
+                x="252"
+                y="331"
+                fill="#4A5A64"
+                font-size="10"
+                font-family="Space Mono, monospace"
+              >
+                24H · 約 200 階
+              </text>
+
+              <circle cx="280" cy="355" r="7" fill="#0A5F4C" />
+              <text x="196" y="378" fill="#14202A">聖地牙哥城門</text>
+              <text
+                x="196"
+                y="392"
+                fill="#4A5A64"
+                font-size="10"
+                font-family="Space Mono, monospace"
+              >
+                24H · FREE
+              </text>
+            </g>
+
+            <!-- 比例尺 -->
+            <line
+              x1="24"
+              y1="420"
+              x2="94"
+              y2="420"
+              stroke="#4A5A64"
+              stroke-width="1.5"
+            />
+            <line
+              x1="24"
+              y1="416"
+              x2="24"
+              y2="424"
+              stroke="#4A5A64"
+              stroke-width="1.5"
+            />
+            <line
+              x1="94"
+              y1="416"
+              x2="94"
+              y2="424"
+              stroke="#4A5A64"
+              stroke-width="1.5"
+            />
+            <text
+              x="24"
+              y="437"
+              fill="#4A5A64"
+              font-size="10"
+              font-family="Space Mono, monospace"
+            >
+              200 m
+            </text>
+
+            <!-- 出城箭頭 -->
+            <g font-family="Space Mono, monospace" font-size="10">
+              <text x="24" y="463" fill="#8A5E08">
+                ↑ 北 5km Melaka Sentral 巴士站
+              </text>
+              <text x="24" y="478" fill="#8A5E08">← 西 2km 佳必多沙嗲朱律</text>
+              <text x="24" y="493" fill="#8A5E08">↓ 南 4km 海峽清真寺</text>
+            </g>
+          </svg>
+          <figcaption>
+            七個點全部落在 600 公尺內，最遠兩點走路 10 分鐘。出城的三個地方叫
+            Grab，車資都在 RM20 以內。
+          </figcaption>
+        </figure>
+
+        <h3>③ 吉隆坡放射圖</h3>
+        <figure>
+          <svg
+            viewBox="0 0 360 400"
+            role="img"
+            aria-label="吉隆坡軌道與周邊路網示意"
+          >
+            <g stroke-width="2.5" fill="none" stroke-linecap="round">
+              <path d="M150 232 L135 62" stroke="#0A5F4C" />
+              <path d="M150 232 L216 192" stroke="#8A5E08" />
+              <path d="M216 192 L228 148" stroke="#8A5E08" />
+              <path d="M150 232 L296 122" stroke="#A81F3C" />
+              <path d="M150 232 L292 186" stroke="#A81F3C" />
+              <path d="M150 232 L244 300" stroke="#4A5A64" />
+              <path d="M244 300 L214 356" stroke="#4A5A64" />
+              <path
+                d="M150 232 L58 300"
+                stroke="#0A5F4C"
+                stroke-dasharray="5 5"
+              />
+            </g>
+
+            <g
+              font-family="Noto Sans TC, sans-serif"
+              font-size="11.5"
+              font-weight="500"
+            >
+              <circle cx="150" cy="232" r="10" fill="#14202A" />
+              <text
+                x="90"
+                y="256"
+                fill="#14202A"
+                font-size="13"
+                font-weight="700"
+              >
+                KL Sentral
+              </text>
+              <text
+                x="90"
+                y="270"
+                fill="#4A5A64"
+                font-size="9.5"
+                font-family="Space Mono, monospace"
+              >
+                所有路線的中心 · 9/16 住這
+              </text>
+
+              <circle cx="135" cy="62" r="7" fill="#0A5F4C" />
+              <text x="148" y="59" fill="#14202A">黑風洞</text>
+              <text
+                x="148"
+                y="73"
+                fill="#4A5A64"
+                font-size="9.5"
+                font-family="Space Mono, monospace"
+              >
+                KTM 30 分 · 免費
+              </text>
+
+              <circle cx="228" cy="148" r="6" fill="#8A5E08" />
+              <text x="240" y="145" fill="#14202A">獨立廣場</text>
+              <circle cx="216" cy="192" r="6" fill="#8A5E08" />
+              <text x="228" y="205" fill="#14202A">茨廠街・藝術坊</text>
+              <text
+                x="228"
+                y="219"
+                fill="#4A5A64"
+                font-size="9.5"
+                font-family="Space Mono, monospace"
+              >
+                Pasar Seni 站
+              </text>
+
+              <circle cx="296" cy="122" r="7" fill="#A81F3C" />
+              <text x="222" y="112" fill="#14202A">雙子星塔</text>
+              <text
+                x="222"
+                y="98"
+                fill="#A81F3C"
+                font-size="9.5"
+                font-family="Space Mono, monospace"
+              >
+                週一休 · RM98
+              </text>
+
+              <circle cx="292" cy="186" r="6" fill="#A81F3C" />
+              <text x="238" y="178" fill="#14202A">亞羅街</text>
+
+              <circle cx="244" cy="300" r="6" fill="#4A5A64" />
+              <text x="256" y="297" fill="#14202A">TBS 巴士總站</text>
+              <text
+                x="256"
+                y="311"
+                fill="#4A5A64"
+                font-size="9.5"
+                font-family="Space Mono, monospace"
+              >
+                馬六甲的車停這
+              </text>
+
+              <circle cx="214" cy="356" r="7" fill="#8A5E08" />
+              <text x="226" y="353" fill="#14202A">KLIA T1 / T2</text>
+              <text
+                x="226"
+                y="367"
+                fill="#4A5A64"
+                font-size="9.5"
+                font-family="Space Mono, monospace"
+              >
+                Ekspres 28 分 · RM55
+              </text>
+
+              <circle cx="58" cy="300" r="7" fill="#0A5F4C" />
+              <text x="16" y="326" fill="#14202A">瓜拉雪蘭莪</text>
+              <text
+                x="16"
+                y="340"
+                fill="#4A5A64"
+                font-size="9.5"
+                font-family="Space Mono, monospace"
+              >
+                無軌道 · 包車 1h
+              </text>
+            </g>
+          </svg>
+          <figcaption>
+            實線是軌道，虛線要靠車。吉隆坡的景點是散的，別想用走的串。
+          </figcaption>
+        </figure>
+      </section>
+
+      <div class="tile-rule">
+        <span class="ln"></span>
+        <svg width="20" height="20" viewBox="0 0 20 20">
+          <path d="M10 1 L15 6 L10 11 L5 6 Z" fill="#8A5E08" />
+          <path d="M10 9 L15 14 L10 19 L5 14 Z" fill="#0A5F4C" />
+        </svg>
+        <span class="ln"></span>
+      </div>
+
+      <!-- ============ 交通 ============ -->
+      <section>
+        <h2><span class="no">03 / TRANSPORT</span>交通全解</h2>
+
+        <div class="card">
+          <h4>桃園 → 吉隆坡 <span class="en">D7379</span></h4>
+          <p class="meta warn">
+            9/11 五 晚上到機場 · 00:20 起飛 · 05:00 落地 klia2
+          </p>
+          <p>
+            AirAsia
+            的托運行李一定要線上先加購，機場現場補買價差很大。櫃檯通常起飛前三小時開，晚上十點前到桃園
+            T1 比較安心。
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>klia2 → 馬六甲 <span class="en">DIRECT COACH</span></h4>
+          <p class="meta">2.5–3 小時 · RM24–35 · 建議搭 07:00–08:00 那班</p>
+          <p>
+            不用進吉隆坡市區。出關後往 Gateway@klia2 商場 Level 1 的
+            Transportation Hub，Transnasional 跟 StarMart 都有直達班次。先在
+            Easybook 或 redBus 訂好，到現場再換紙本票。
+          </p>
+          <p>
+            下車在 Melaka Sentral，距離古城還有 5 公里，叫 Grab 約 15
+            分鐘、RM12–15。
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>馬六甲 → 吉隆坡 <span class="en">MELAKA SENTRAL → TBS</span></h4>
+          <p class="meta">平日 1h45–2h15 · RM12–16 · 約每半小時一班</p>
+          <p>
+            線上訂票要到櫃檯換登機證，提早 30–40 分鐘到站。TBS 直接接 LRT 與 MRT
+            的 Bandar Tasik Selatan 站，進市區很順。
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>吉隆坡市區 <span class="en">LRT / MRT / MONORAIL</span></h4>
+          <p class="meta">Touch 'n Go 卡最方便 · Grab 市區短程 RM8–15</p>
+          <p>
+            軌道系統夠用但轉乘要走一段路，三公里以內其實 Grab
+            更省時間也不貴。市中心還有 GOKL 免費巴士繞行。
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>瓜拉雪蘭莪 <span class="en">KUALA SELANGOR</span></h4>
+          <p class="meta">吉隆坡西北約 1 小時車程 · 無軌道可達</p>
+          <p>
+            沒有大眾運輸直達，一定要包車或參加一日團。訂車時指定「黑風洞停車場上車」，可以省掉一趟來回市區的兩小時。
+          </p>
+          <p>
+            自費項目：餵老鷹 RM30、螢火蟲 RM30、藍眼淚 RM30，三合一套票約
+            RM80。漁村海鮮每人 RM50–70。
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>吉隆坡 → KLIA T1 <span class="en">9/17 THU</span></h4>
+          <p class="meta warn">是 T1 不是 T2 · 07:50 前要到航廈</p>
+          <p>
+            KL Sentral 搭 KLIA Ekspres 約 28 分鐘、RM55，搭 06:50–07:00
+            那班最保險。機場巴士 RM12 但要一小時而且會塞。
+          </p>
+        </div>
+      </section>
+
+      <div class="tile-rule">
+        <span class="ln"></span>
+        <svg width="20" height="20" viewBox="0 0 20 20">
+          <path d="M10 1 L15 6 L10 11 L5 6 Z" fill="#8A5E08" />
+          <path d="M10 9 L15 14 L10 19 L5 14 Z" fill="#0A5F4C" />
+        </svg>
+        <span class="ln"></span>
+      </div>
+
+      <!-- ============ 逐日 ============ -->
+      <section>
+        <h2><span class="no">04 / ITINERARY</span>逐日行程</h2>
+
+        <div class="tipbox">
+          <b>動線的三個原則。</b
+          >一、同一區一次掃完，絕不回頭過橋或折返。二、沒有空白時段，原本的補眠與採買換成博物館和近郊。三、跨區移動盡量接力，包車直接到黑風洞接人，省掉一趟往返市區。
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="dt">9 / 12 SAT</span
+            ><span class="nm">東岸古蹟一條龍</span>
+          </div>
+          <p class="day-note">
+            馬六甲的古蹟分兩岸：東岸是殖民統治區，西岸是華人老街。今天掃東岸，晚上留在西岸，全天不用來回過橋。
+          </p>
+          <ul class="tl">
+            <li>
+              <span class="hh">05:00</span
+              ><span class="bb"
+                >klia2 落地<small
+                  >入境、領行李、換少量馬幣，出關約 06:00</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">07:30</span
+              ><span class="bb"
+                >直達巴士往馬六甲<small>上車就睡，車程 2.5–3 小時</small></span
+              >
+            </li>
+            <li>
+              <span class="hh">11:00</span
+              ><span class="bb"
+                >古城午餐，寄放行李<small
+                  >雞飯粒。中華茶室或 Famosa Chicken Rice Ball
+                  先存著，現場看人潮決定</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">13:00</span
+              ><span class="bb"
+                >東岸七點連續走<small
+                  >荷蘭紅屋廣場 → 基督堂 → 獨立宣言紀念館 → 蘇丹皇宮博物館 →
+                  聖保羅山 → 聖地牙哥城門 → 海事博物館。總距離不到 600
+                  公尺</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">16:30</span
+              ><span class="bb"
+                >河岸步道、老屋咖啡<small
+                  >九月午後常有雷陣雨，留一個室內選項</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">18:00</span
+              ><span class="bb"
+                >週六雞場街<small
+                  >三天裡最熱鬧的一場。邊走邊吃當晚餐</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">20:30</span
+              ><span class="bb"
+                >馬六甲河夜遊船<small
+                  >約 45 分鐘。排在住宿這晚，不排在要趕車的那天</small
+                ></span
+              >
+            </li>
+          </ul>
+          <div class="tipbox">
+            <b>兩個博物館填掉原本的空檔。</b>蘇丹皇宮博物館是照 15
+            世紀馬來皇宮復原的全木造建築；海事博物館做成 1:1 的葡萄牙沉船 Flor
+            de la Mar，可以走進船艙。
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="dt">9 / 13 SUN</span
+            ><span class="nm">西岸華人區，下午南下出城</span>
+          </div>
+          <p class="day-note">
+            上午掃西岸老街，下午一路往南，出城的三個點串成一條線，不繞路。
+          </p>
+          <ul class="tl">
+            <li>
+              <span class="hh">09:30</span
+              ><span class="bb"
+                >峇峇娘惹博物館<small
+                  >10:00 開門前先到。週二休，門票約
+                  RM25，導覽制，二樓要脫鞋</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">11:00</span
+              ><span class="bb"
+                >和諧之路<small
+                  >青雲亭 → 甘榜吉靈清真寺 →
+                  馬里安曼興都廟。同一條街上三個宗教並肩兩百年，走完只要十分鐘</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">12:00</span><span class="bb">娘惹菜午餐</span>
+            </li>
+            <li>
+              <span class="hh">13:00</span
+              ><span class="bb">荷蘭街、壁畫、河岸老屋</span>
+            </li>
+            <li>
+              <span class="hh">15:00</span
+              ><span class="bb"
+                >馬六甲海峽清真寺<small
+                  >非穆斯林開放時段
+                  15:00–16:15，卡這個窗口進去。要長袖長褲，現場可借長袍</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">16:30</span
+              ><span class="bb"
+                >葡萄牙村看海<small>從清真寺往東沿海岸，順路</small></span
+              >
+            </li>
+            <li>
+              <span class="hh">17:30</span
+              ><span class="bb"
+                >佳必多沙嗲朱律<small
+                  >週一休，17:00
+                  開，早去免排。自己夾串涮沙嗲醬鍋，算竹籤結帳</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">19:30</span
+              ><span class="bb">週日雞場街 + Jonker 88 煎蕊</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="dt">9 / 14 MON</span
+            ><span class="nm">吉隆坡舊城徒步大縱走</span>
+          </div>
+          <p class="day-note">
+            兩公里的連續步行線，中途完全不用搭車。這天雙子星觀景台和紅屋教堂都週一公休，拿來走戶外剛好。
+          </p>
+          <ul class="tl">
+            <li>
+              <span class="hh">09:00</span
+              ><span class="bb"
+                >Melaka Sentral 上車<small
+                  >約兩小時到 TBS，轉 LRT 進市區</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">12:00</span
+              ><span class="bb">Bukit Bintang 放行李</span>
+            </li>
+            <li>
+              <span class="hh">12:30</span
+              ><span class="bb"
+                >Lot 10 Hutong 午餐<small
+                  >把吉隆坡幾十家老字號小販集中在商場地下室，一次解決不用跑遠</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">14:00</span
+              ><span class="bb"
+                >舊城區大縱走<small
+                  >占美清真寺 → 獨立廣場 → 蘇丹阿都沙末大廈 → 城市藝廊 →
+                  國家紡織博物館 → 河流交匯處 → 中央藝術坊 → 鬼仔巷 → 關帝廟 →
+                  興都廟 → 陳氏書院 → 茨廠街</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">18:30</span
+              ><span class="bb"
+                >河流交匯處藍光<small
+                  >天黑後占美清真寺打燈，這個時間點卡得剛好</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">20:00</span
+              ><span class="bb"
+                >亞羅街宵夜<small>沙嗲、燒魚、椰子冰淇淋，開到半夜</small></span
+              >
+            </li>
+          </ul>
+          <div class="tipbox">
+            <b>鬼仔巷是這條線的重點。</b
+            >一條翻新的百年後巷，牆上做了立體壁畫重現舊時的賭館、當鋪、小販。晚上打燈後氣氛完全不同。
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="dt">9 / 15 TUE</span
+            ><span class="nm">黑風洞接力北上</span>
+          </div>
+          <p class="day-note">
+            今天最大的改動：黑風洞玩完不要回市區，直接請包車司機到黑風洞停車場接你，往西北開一小時就到瓜拉雪蘭莪，省掉兩小時的來回。
+          </p>
+          <ul class="tl">
+            <li>
+              <span class="hh">07:30</span
+              ><span class="bb"
+                >KL Sentral 搭 KTM<small>約 30 分鐘直達</small></span
+              >
+            </li>
+            <li>
+              <span class="hh">08:00</span
+              ><span class="bb"
+                >黑風洞<small
+                  >272
+                  階彩虹階梯，免費。要穿過膝的褲子。旁邊的羅摩劍洞票價便宜、人少很多，裡面是印度史詩立體雕塑，值得順路進去。手上不要拿食物，猴子會搶</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">11:00</span
+              ><span class="bb"
+                >包車在黑風洞停車場接人<small
+                  >訂車時要特別指定上車地點</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">13:30</span
+              ><span class="bb"
+                >鷹山 Bukit Melawati<small
+                  >荷蘭砲台、燈塔、銀葉猴。小火車可能只有週六日營運，訂之前先問</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">15:00</span
+              ><span class="bb"
+                >適耕莊 Sekinchan<small
+                  >往北 30
+                  公里的米倉，稻田、漁村、熱浪沙灘、許願樹。九月是青蔥稻田期，整片綠。這段就是拿來填掉原本在漁村乾等的空檔</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">17:30</span
+              ><span class="bb"
+                >紅樹林遊河餵老鷹<small
+                  >船家撒餌，老鷹俯衝抓取。約 RM30</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">18:30</span
+              ><span class="bb"
+                >巴西不南邦漁村海鮮<small
+                  >河口邊一整排海鮮餐廳，每人 RM50–70</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">20:00</span
+              ><span class="bb"
+                >螢火蟲夜遊<small
+                  >甘榜關丹是傳統槳船每船四人比較安靜。約
+                  RM30。老鷹＋螢火蟲＋藍眼淚三合一套票約 RM80</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">22:30</span><span class="bb">回到吉隆坡</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="dt">9 / 16 WED</span
+            ><span class="nm">湖濱公園博物館群</span>
+          </div>
+          <p class="day-note">
+            國家清真寺、伊斯蘭藝術博物館、飛禽公園、蝴蝶公園、國家博物館、舊火車站全部擠在同一區，而且就在
+            KL Sentral
+            旁邊，你今晚剛好住那裡。全天由西往東單向掃，不回頭。今天是馬來西亞日國定假日，人會多。
+          </p>
+          <ul class="tl">
+            <li>
+              <span class="hh">08:30</span
+              ><span class="bb"
+                >Bukit Bintang 退房<small
+                  >行李直接寄到 KL Sentral 的飯店</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">09:30</span
+              ><span class="bb"
+                >國家清真寺 Masjid Negara<small
+                  >非穆斯林開放 09:30–12:30，入口借長袍</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">10:30</span
+              ><span class="bb"
+                >伊斯蘭藝術博物館<small
+                  >09:30–18:00 每天開，館內的圓頂與建築模型區是重點</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">11:30</span
+              ><span class="bb"
+                >舊吉隆坡火車站<small>摩爾式白色建築，走過去順路</small></span
+              >
+            </li>
+            <li>
+              <span class="hh">12:00</span
+              ><span class="bb"
+                >飛禽公園<small
+                  >全世界最大的自由飛翔式鳥園，鳥在你頭上飛，不是關在籠子裡。旁邊接蝴蝶公園</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">14:30</span
+              ><span class="bb"
+                >觀景台二選一<small
+                  >想拍到雙子星本人選 KL Tower，視角更好；想走進地標裡面選雙子星
+                  Skybridge。票先線上訂，國定假日現場一定滿</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">18:30</span
+              ><span class="bb"
+                >KLCC 公園音樂噴泉<small
+                  >整點場次，從公園水池這側看雙子星打燈角度最好</small
+                ></span
+              >
+            </li>
+            <li>
+              <span class="hh">20:00</span
+              ><span class="bb"
+                >亞羅街或武吉免登收尾<small
+                  >伴手禮在 KL Sentral 樓上順手買，不另外排時間</small
+                ></span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="dt">9 / 17 THU</span><span class="nm">離境</span>
+          </div>
+          <ul class="tl">
+            <li>
+              <span class="hh">06:50</span
+              ><span class="bb"
+                >KL Sentral 搭 KLIA Ekspres<small>約 28 分鐘</small></span
+              >
+            </li>
+            <li>
+              <span class="hh">07:30</span
+              ><span class="bb"
+                >抵達 KLIA T1<small>再次確認：是 T1，不是你來的 T2</small></span
+              >
+            </li>
+            <li><span class="hh">09:50</span><span class="bb">起飛</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ 吃 ============ -->
+      <section>
+        <h2><span class="no">05 / FOOD</span>該吃什麼</h2>
+
+        <h3>馬六甲</h3>
+        <div class="eat">
+          <div>
+            <b>雞飯粒</b><span>海南雞配捏成球狀的飯團，馬六甲限定吃法</span>
+          </div>
+          <div>
+            <b>沙嗲朱律</b
+            ><span>自己夾串涮沙嗲醬鍋，Satay Celup，這道別的城市吃不到</span>
+          </div>
+          <div><b>娘惹叻沙</b><span>椰奶湯底，比檳城的酸辣版本溫和</span></div>
+          <div>
+            <b>珍多冰</b><span>Cendol，椰糖淋在剉冰上，甜得很有層次</span>
+          </div>
+          <div>
+            <b>娘惹糕</b><span>Kuih，色彩繽紛的椰香糕點，適合當伴手禮</span>
+          </div>
+        </div>
+
+        <h3>吉隆坡</h3>
+        <div class="eat">
+          <div><b>肉骨茶</b><span>藥材豬骨湯配油條和白飯，早餐吃的</span></div>
+          <div>
+            <b>椰漿飯</b
+            ><span>Nasi Lemak，椰香飯配參巴辣醬、江魚仔、水煮蛋</span>
+          </div>
+          <div>
+            <b>咖椰吐司</b><span>Kaya Toast 配半熟蛋和黑咖啡，早餐標配</span>
+          </div>
+          <div>
+            <b>印度煎餅</b><span>Roti Canai，沾咖哩或豆湯，全天都有</span>
+          </div>
+          <div><b>炒粿條</b><span>亞羅街跟茨廠街都找得到</span></div>
+        </div>
+      </section>
+
+      <div class="tile-rule">
+        <span class="ln"></span>
+        <svg width="20" height="20" viewBox="0 0 20 20">
+          <path d="M10 1 L15 6 L10 11 L5 6 Z" fill="#8A5E08" />
+          <path d="M10 9 L15 14 L10 19 L5 14 Z" fill="#0A5F4C" />
+        </svg>
+        <span class="ln"></span>
+      </div>
+
+      <!-- ============ 行前 ============ -->
+      <section>
+        <h2><span class="no">06 / BEFORE YOU GO</span>出發前</h2>
+
+        <ul class="check">
+          <li>
+            <b>填 MDAC 數位入境卡</b
+            ><small
+              >入境前三天內線上填，9/10 之後就能填。完全免費，官網是
+              imigresen-online.imi.gov.my/mdac/main。網路上有假網站收費，別點錯</small
+            >
+          </li>
+          <li>
+            <b>檢查護照效期</b><small>需六個月以上。台灣護照免簽 30 天</small>
+          </li>
+          <li>
+            <b>訂 klia2 → 馬六甲的巴士票</b
+            ><small>Easybook 或 redBus，訂 07:00–08:00 那班</small>
+          </li>
+          <li>
+            <b>訂 9/16 觀景台時段票</b
+            ><small>雙子星或 KL Tower 擇一。9/16 是國定假日，現場一定滿</small>
+          </li>
+          <li>
+            <b>訂 9/15 瓜拉雪蘭莪包車</b
+            ><small>指定黑風洞上車，並確認鷹山小火車平日有無營運</small>
+          </li>
+          <li><b>下載 Grab</b><small>叫車、外送都靠它，綁好信用卡</small></li>
+          <li><b>準備 eSIM 或漫遊</b><small>台灣先買比機場便宜</small></li>
+          <li><b>英規 Type G 轉接頭</b><small>三孔方腳，電壓 240V</small></li>
+          <li>
+            <b>薄外套、雨具、防曬</b
+            ><small>九月午後常有雷陣雨，室內冷氣又很強</small>
+          </li>
+          <li>
+            <b>過膝長褲</b
+            ><small>黑風洞、清真寺都需要。女性進清真寺要包頭巾，現場有借</small>
+          </li>
+        </ul>
+
+        <div class="tipbox">
+          <b>住宿分兩段訂。</b>馬六甲古城區兩晚，吉隆坡 9/14、9/15 住 Bukit
+          Bintang（吃逛換錢集中、亞羅街走路到），9/16 那晚換到 KL
+          Sentral，隔天下樓直接搭機場快線。<br /><br />時差是零，落地不用調錶。
+        </div>
+      </section>
+
+      <footer>
+        MELAKA · KUALA LUMPUR · BATU CAVES · KUALA SELANGOR · SEKINCHAN<br />
+        12–17 SEPTEMBER 2026<br />
+        營業時間與票價可能變動，出發前再確認一次。
+      </footer>
+    </div>
+  </body>
+</html>
