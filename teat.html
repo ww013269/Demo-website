@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>馬來西亞路線導航 9.12–9.17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light only}
+html{-webkit-text-size-adjust:100%;background:#F7F3EA !important}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:#F7F3EA !important;color:#14202A !important;
+  font-family:'Noto Sans TC',"PingFang TC","Heiti TC",sans-serif;font-weight:400;font-size:16.5px;line-height:1.72}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px 80px}
+
+.top{padding:22px 0 16px;border-bottom:2px solid #14202A}
+.kick{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;color:#0A5F4C;margin:0 0 8px;font-weight:700}
+h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:27px;margin:0 0 8px;color:#14202A}
+.lede{color:#33434E;font-size:14.5px;margin:0}
+.badge{display:inline-block;font-size:12.5px;background:#0A5F4C;color:#FFFFFF;padding:5px 12px;border-radius:4px;margin-top:12px;font-weight:500}
+
+.tabs{position:sticky;top:0;z-index:20;background:#F7F3EA;border-bottom:2px solid #D8CDB8;
+  display:flex;gap:6px;overflow-x:auto;padding:10px 16px;margin:0 -16px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1.5px solid #B9AC93;background:#FFFFFF;border-radius:999px;
+  padding:8px 15px;font-size:13.5px;color:#14202A;cursor:pointer;white-space:nowrap;font-weight:500;font-family:inherit}
+.tab b{font-weight:700;margin-left:5px}
+.tab.on{background:#14202A;border-color:#14202A;color:#FFFFFF}
+
+.dayhead{padding:22px 0 4px}
+.dayhead h2{font-family:'Noto Serif TC',serif;font-weight:700;font-size:23px;margin:0 0 8px;color:#14202A}
+.dayhead .sub{font-family:'Space Mono',monospace;font-size:12px;color:#8A5E08;letter-spacing:.08em;margin:0 0 10px;font-weight:700}
+.dayhead p{color:#33434E;font-size:14.5px;margin:0}
+.basechip{display:inline-flex;gap:6px;background:#FFFFFF;border:1.5px solid #B9AC93;border-radius:5px;
+  padding:8px 13px;font-size:14px;margin-top:13px;color:#14202A;font-weight:500}
+
+.routebtn{display:block;width:100%;margin:16px 0 4px;background:#0A5F4C;color:#FFFFFF;border:none;
+  border-radius:7px;padding:15px;font-family:inherit;font-size:16px;font-weight:700;text-align:center;text-decoration:none;cursor:pointer}
+.routebtn small{display:block;font-family:'Space Mono',monospace;font-size:10.5px;color:#C9E5DC;margin-top:4px;letter-spacing:.08em;font-weight:400}
+
+.stops{margin:20px 0 0;position:relative}
+.stops:before{content:"";position:absolute;left:26px;top:14px;bottom:14px;width:2px;background:#D8CDB8}
+.stop{position:relative;display:grid;grid-template-columns:54px 1fr;gap:12px;padding:0 0 16px}
+.dot{position:relative;z-index:2;padding-top:15px}
+.dot i{display:block;width:13px;height:13px;border-radius:50%;background:#FFFFFF;border:3px solid #0A5F4C;margin:0 auto}
+.stop.done .dot i{background:#0A5F4C}
+.tt{display:block;font-family:'Space Mono',monospace;font-size:11.5px;color:#4A5A64;text-align:center;margin-top:6px;font-weight:700}
+.body{background:#FFFFFF;border:1.5px solid #C7BAA2;border-radius:8px;padding:14px 15px}
+.stop.done .body{background:#EFEBE1;border-color:#D8CDB8}
+.stop.done h3,.stop.done p{color:#78848C !important}
+.body h3{font-size:17px;font-weight:700;margin:0 0 3px;line-height:1.45;color:#14202A}
+.en{font-family:'Space Mono',monospace;font-size:10.5px;color:#6B7A83;letter-spacing:.04em;display:block;margin-bottom:8px}
+.body p{margin:0;font-size:14.5px;color:#33434E;line-height:1.68}
+.warnline{color:#A81F3C !important;font-size:14px;margin-top:8px !important;font-weight:500}
+
+.hl{margin-top:11px;background:#FAF2E0;border:1.5px solid #E0CB9A;border-radius:6px;
+  padding:11px 12px;font-size:14.5px;color:#22303A;line-height:1.62}
+.hl span{display:inline-block;background:#8A5E08;color:#FFFFFF;font-size:11.5px;font-weight:700;
+  padding:2px 8px;border-radius:3px;margin-right:8px;letter-spacing:.05em}
+.chips{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+.chips span{font-size:12.5px;color:#33434E;border:1.5px solid #C7BAA2;border-radius:4px;
+  padding:4px 10px;background:#FBF8F2;font-weight:500}
+
+.acts{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap;align-items:stretch}
+.act{flex:1;min-width:104px;text-align:center;text-decoration:none;border:1.5px solid #14202A;
+  border-radius:6px;padding:11px 6px;font-size:14px;color:#14202A;background:#FFFFFF;font-weight:500}
+.act.nav{background:#1B5C87;border-color:#1B5C87;color:#FFFFFF}
+.chk{flex:none;width:44px;border:1.5px solid #14202A;border-radius:6px;background:#FFFFFF;
+  cursor:pointer;font-size:17px;color:#0A5F4C;font-weight:700;font-family:inherit}
+.mode{display:inline-block;font-size:11.5px;font-weight:700;border-radius:3px;padding:3px 8px;margin-bottom:8px;color:#FFFFFF;background:#4A5A64}
+.mode.walk{background:#0A5F4C}
+.mode.grab{background:#8A5E08}
+.mode.rail{background:#1B5C87}
+.mode.bus{background:#A81F3C}
+
+.panel{background:#FFFFFF;border:1.5px solid #C7BAA2;border-radius:8px;padding:17px;margin:24px 0 0}
+.panel h4{font-family:'Noto Serif TC',serif;font-size:17.5px;margin:0 0 12px;font-weight:700;color:#14202A}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.links a{text-decoration:none;border:1.5px solid #14202A;border-radius:6px;padding:12px;text-align:center;font-size:14px;color:#14202A;background:#FFFFFF;font-weight:500}
+.kv{display:grid;grid-template-columns:82px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid #E0D6C4;font-size:14.5px;color:#33434E}
+.kv:last-child{border:none}
+.kv b{font-family:'Space Mono',monospace;font-size:11.5px;color:#8A5E08;font-weight:700;padding-top:3px}
+.kv strong{color:#A81F3C}
+
+.lg{display:inline-block;font-size:12.5px;color:#1B5C87;background:#EAF2F8;border:1px solid #B9D3E5;
+  border-radius:4px;padding:3px 9px;margin:0 0 8px 6px;font-weight:500}
+
+.wear{border-radius:8px;padding:14px 15px;margin:14px 0 0;font-size:14.5px;line-height:1.66;color:#22303A}
+.wear.strict{background:#FBEEF0;border:2px solid #E4A8B4}
+.wear.mid{background:#FAF2E0;border:2px solid #E0CB9A}
+.wear.easy{background:#EDF3EF;border:2px solid #BBD4C6}
+.wear b{display:block;margin-bottom:6px;font-size:15.5px}
+.wear.strict b{color:#A81F3C}
+.wear.mid b{color:#8A5E08}
+.wear.easy b{color:#0A5F4C}
+.wear em{font-style:normal;display:block;margin-top:9px;padding-top:9px;border-top:1px dashed #C7BAA2;font-weight:700;color:#14202A}
+.bk{background:#FFFFFF;border:1.5px solid #C7BAA2;border-radius:8px;padding:15px;margin:0 0 11px}
+.bk .tag{display:inline-block;font-size:11.5px;font-weight:700;color:#FFFFFF;padding:3px 9px;border-radius:3px;margin-bottom:8px}
+.bk.must .tag{background:#A81F3C}
+.bk.rec .tag{background:#8A5E08}
+.bk.no .tag{background:#4A5A64}
+.bk h3{font-size:16.5px;font-weight:700;margin:0 0 5px;color:#14202A}
+.bk p{margin:0;font-size:14.5px;color:#33434E;line-height:1.65}
+.bk .when{display:block;font-size:13.5px;color:#A81F3C;font-weight:700;margin-top:7px}
+.bk a.go{display:inline-block;margin-top:11px;background:#14202A;color:#FFFFFF;text-decoration:none;
+  border-radius:6px;padding:9px 16px;font-size:14px;font-weight:500}
+.sechead{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;margin:26px 0 12px;color:#14202A;
+  padding-bottom:8px;border-bottom:2px solid #14202A}
+.tsum{border-top:2px solid #14202A;margin-bottom:6px}
+.tsum div{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #D8CDB8;font-size:14.5px;color:#33434E}
+.tsum div b{font-family:'Space Mono',monospace;font-size:12.5px;color:#8A5E08;font-weight:700;padding-top:2px}
+.tsum div strong{color:#14202A;font-size:15px}
+footer{margin-top:28px;padding-top:16px;border-top:2px solid #D8CDB8;font-size:12.5px;color:#5A6970;line-height:1.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="top">
+  <p class="kick">GOOGLE MAPS ROUTE · 12–17 SEP 2026</p>
+  <h1>馬來西亞跟著跑</h1>
+  <p class="lede">每一站都有招牌、停留時間、門票估算，以及一鍵開地圖或導航。綠色大按鈕會把當天整條路線一次丟進 Google Map。</p>
+  <span class="badge" id="today">—</span>
+</div>
+
+<div class="tabs" id="tabs"></div>
+<div id="days"></div>
+
+<div class="panel">
+  <h4>常用連結</h4>
+  <div class="links">
+    <a href="https://imigresen-online.imi.gov.my/mdac/main" target="_blank" rel="noopener">MDAC 入境卡</a>
+    <a href="https://www.easybook.com/en-my" target="_blank" rel="noopener">Easybook 巴士</a>
+    <a href="https://www.kliaekspres.com/" target="_blank" rel="noopener">KLIA Ekspres</a>
+    <a href="https://www.petronastwintowers.com.my/" target="_blank" rel="noopener">雙子星票務</a>
+  </div>
+</div>
+
+<div class="panel">
+  <h4>不能忘的事</h4>
+  <div class="kv"><b>9/11 FRI</b><div>晚上就要到桃園 T1，飛機是 9/12 00:20 起飛</div></div>
+  <div class="kv"><b>航廈</b><div>去程降落 klia2（T2），回程從 <strong>KLIA T1</strong> 走，不同棟</div></div>
+  <div class="kv"><b>夜市</b><div>雞場街只有週五六日 18:00–24:00</div></div>
+  <div class="kv"><b>公休</b><div>週一：雙子星觀景台、基督堂內部、沙嗲朱律。週二：峇峇娘惹博物館</div></div>
+  <div class="kv"><b>服裝</b><div>黑風洞、清真寺要過膝，清真寺現場可借長袍</div></div>
+  <div class="kv"><b>包車</b><div>9/15 訂車時指定「黑風洞停車場上車」，省兩小時</div></div>
+</div>
+
+<footer>
+  票價與停留時間為估算值，出發前請再確認一次。<br>
+  MELAKA · KUALA LUMPUR · BATU CAVES · KUALA SELANGOR · SEKINCHAN
+</footer>
+</div>
+
+<script>
+const DAYS=[
+{d:"9/12",w:"六",iso:"2026-09-12",dr:{lv:"easy",h:"沒有服裝檢查",p:"今天走很多路，還要爬聖保羅山約 200 階。蘇丹皇宮博物館要脫鞋。",tip:"好走的球鞋 + 好脫的鞋更好。上衣隨意。"},title:"東岸古蹟一條龍",base:"住 馬六甲古城區",mode:"walking",
+ note:"馬六甲古蹟分兩岸：東岸是殖民統治區，西岸是華人老街。今天掃東岸，晚上留在西岸，全天不用來回過橋。",
+ s:[
+ {t:"05:00",n:"klia2 抵達",e:"KUL TERMINAL 2",q:"klia2 Kuala Lumpur International Airport Terminal 2",m:"",
+  p:"入境、領行李、換少量馬幣。出關約 06:00。",dur:"1 小時"},
+ {t:"07:30",n:"klia2 巴士總站",e:"GATEWAY@KLIA2 L1",q:"Gateway klia2 Transportation Hub",m:"bus",lg:"航廈內走 10 分鐘到 Level 1",
+  p:"Level 1 交通樞紐搭直達巴士，先在 Easybook 訂好，現場換紙本票。",dur:"2.5–3 小時車程",fee:"約 RM24–35"},
+ {t:"11:00",n:"Melaka Sentral",e:"MELAKA BUS TERMINAL",q:"Melaka Sentral",m:"bus",lg:"直達巴士 2.5–3 小時",
+  p:"距古城 5 公里，叫 Grab 約 15 分鐘。",fee:"Grab 約 RM12–15"},
+ {t:"11:30",n:"雞飯粒午餐",e:"CHICKEN RICE BALL",q:"Chung Wah Chicken Rice Ball Melaka",m:"grab",lg:"Grab 15 分鐘・約 RM12–15",
+  hl:"海南雞飯粒。飯捏成乒乓球大小的圓球，配白斬雞和薑蓉辣椒醬。中華茶室 1938 年開到現在，隔壁 Famosa 也可以，看哪家隊伍短。",
+  p:"吃完順便寄放行李。",dur:"1 小時",fee:"約 RM15–25"},
+ {t:"13:00",n:"荷蘭紅屋廣場",e:"DUTCH SQUARE",q:"Dutch Square Melaka",m:"walk",lg:"步行 5 分鐘",
+  hl:"荷蘭總督府 Stadthuys，1650 年蓋的，是東南亞現存最古老的荷蘭建築。整片磚紅色配上插滿假花的三輪車，是馬六甲最有代表性的畫面。",
+  p:"整個古城的原點。",dur:"20 分鐘"},
+ {t:"13:20",n:"基督堂",e:"CHRIST CHURCH",q:"Christ Church Melaka",m:"walk",lg:"步行 1 分鐘",
+  hl:"屋樑是一根木頭到底、完全沒有接縫。地板上還嵌著荷蘭文的墓碑，牆上有「最後的晚餐」磁磚壁畫。",
+  p:"1753 年荷蘭人蓋的。",dur:"20 分鐘",w:"內部週一公休"},
+ {t:"13:45",n:"獨立宣言紀念館",e:"INDEPENDENCE MEMORIAL",q:"Proclamation of Independence Memorial Melaka",m:"walk",lg:"步行 3 分鐘",
+  hl:"東姑阿都拉曼宣布馬來亞獨立的那棟樓，1912 年的馬六甲俱樂部建築，兩座蒙兀兒式圓頂。",
+  p:"免費入場。",dur:"30 分鐘",fee:"免費"},
+ {t:"14:15",n:"蘇丹皇宮博物館",e:"SULTANATE PALACE",q:"Melaka Sultanate Palace Museum",m:"walk",lg:"步行 4 分鐘",
+  hl:"照 15 世紀馬來皇宮復原的全木造建築，一根釘子都沒用。裡面展馬來宮廷服飾、武術、和漢麗寶公主下嫁的場景。",
+  p:"進去要脫鞋。",dur:"45 分鐘",fee:"約 RM10"},
+ {t:"15:00",n:"聖保羅山",e:"ST PAUL'S HILL",q:"St Paul's Hill Melaka",m:"walk",lg:"步行 3 分鐘・爬階梯",
+  hl:"山頂教堂遺跡有一尊斷了右手的聖方濟沙勿略雕像，他的遺體曾經暫厝在這裡。旁邊那面牆立滿了荷蘭文墓碑。",
+  p:"約 200 階，山頂可以看整片古城跟海峽。下雨後石階會滑。",dur:"30 分鐘",fee:"免費"},
+ {t:"15:30",n:"聖地牙哥城門",e:"A FAMOSA",q:"A Famosa Melaka",m:"walk",lg:"步行 4 分鐘・下坡",
+  hl:"葡萄牙人 1511 年蓋的堡壘只剩這一道門。門楣上還看得到荷蘭東印度公司的 VOC 徽記，是兩個殖民者疊在同一塊石頭上。",
+  p:"從聖保羅山另一側走下來就到，不用繞路。",dur:"15 分鐘",fee:"免費"},
+ {t:"15:45",n:"海事博物館",e:"MARITIME MUSEUM",q:"Maritime Museum Melaka",m:"walk",lg:"步行 5 分鐘",
+  hl:"整棟做成 1:1 的葡萄牙沉船 Flor de la Mar，可以走進船艙看層層甲板。這艘船當年載滿馬六甲的掠奪品，沉在蘇門答臘外海。",
+  p:"門票通常含隔壁的海軍博物館。",dur:"45 分鐘",fee:"約 RM10"},
+ {t:"16:30",n:"馬六甲河岸步道",e:"RIVER WALK",q:"Melaka River Walk",m:"walk",lg:"步行 3 分鐘",
+  hl:"兩岸老屋牆面全是大型壁畫，河邊一排老屋改的咖啡廳。午後雷陣雨就直接轉進去坐。",
+  p:"慢慢走順便消化。",dur:"1 小時"},
+ {t:"18:00",n:"雞場街夜市",e:"JONKER WALK · SAT",q:"Jonker Street Melaka",m:"walk",lg:"步行 8 分鐘・過橋到西岸",
+  hl:"必吃：榴槤泡芙、烤魷魚、椰子冰淇淋、雞蛋仔、白咖啡。街尾常有老人家在唱卡拉 OK，那是雞場街的固定風景。",
+  p:"三天裡最熱鬧的一場，邊走邊吃就當晚餐。",dur:"2 小時"},
+ {t:"21:00",n:"馬六甲河夜遊船",e:"RIVER CRUISE",q:"Melaka River Cruise Jetty",m:"walk",lg:"步行 6 分鐘",
+  hl:"航程會經過甘榜摩登，那是一整片馬來高腳屋水上村落，只有從河上看得到。兩岸壁畫打燈後比白天強太多。",
+  p:"線上訂沒有快速通道，還是要跟現場的人排同一條隊換票，直接現場買就好。櫃檯收現金，帶小鈔。",dur:"45 分鐘",fee:"外國人約 RM50",w:"21 點後隊伍變短，末班登船 23:00"}
+ ]},
+
+{d:"9/13",w:"日",iso:"2026-09-13",dr:{lv:"strict",h:"最嚴格的一天之一",p:"海峽清真寺要長袖長褲、女生包頭巾（入口可借長袍）。今天還會進清真寺、興都廟、峇峇娘惹博物館二樓，全部要脫鞋。",tip:"長褲 + 有袖上衣 + 隨身一條薄圍巾，鞋子挑好脫的。"},title:"西岸華人區，下午南下",base:"住 馬六甲古城區",mode:"walking",
+ note:"上午掃西岸老街，下午一路往南出城，三個點串成一條線不繞路。",
+ s:[
+ {t:"09:30",n:"峇峇娘惹博物館",e:"BABA & NYONYA MUSEUM",q:"Baba & Nyonya Heritage Museum Melaka",m:"",
+  hl:"三間店屋打通的百年豪宅。看點是金漆木雕隔屏、英國瓷磚配中國家具的混血裝潢、成套的娘惹彩瓷，還有小腳穿的珠繡鞋。",
+  p:"10:00 開門前先到排隊，導覽制，二樓要脫鞋。",dur:"1 小時",fee:"約 RM25",w:"週二公休"},
+ {t:"11:00",n:"青雲亭",e:"CHENG HOON TENG",q:"Cheng Hoon Teng Temple Melaka",m:"walk",lg:"步行 4 分鐘",
+  hl:"全馬最古老的華人廟，1673 年。屋脊上的剪瓷雕是從中國請福建工匠來做的，一片一片剪瓷片貼出來的龍鳳。",
+  p:"免費，進去安靜一點。",dur:"20 分鐘",fee:"免費"},
+ {t:"11:20",n:"甘榜吉靈清真寺",e:"KAMPUNG KLING MOSQUE",q:"Kampung Kling Mosque Melaka",m:"walk",lg:"步行 1 分鐘",
+  hl:"屋頂是三層金字塔形，不是常見的圓頂；宣禮塔長得像中國寶塔。蘇門答臘、印度、中國、葡萄牙四種風格疊在一棟樓上。",
+  p:"要脫鞋、遮膝。",dur:"20 分鐘"},
+ {t:"11:35",n:"興都廟",e:"SRI POYYATHA TEMPLE",q:"Sri Poyyatha Vinayagar Moorthi Temple Melaka",m:"walk",lg:"步行 1 分鐘",
+  hl:"1781 年建，是馬來西亞最古老的興都廟之一。走到這裡你就走完了「和諧之路」——同一條街上華人廟、清真寺、興都廟並肩了兩百多年。",
+  p:"三間廟走完不到十分鐘。",dur:"15 分鐘"},
+ {t:"12:00",n:"娘惹菜午餐",e:"NYONYA LUNCH",q:"Nyonya restaurant Jonker Street Melaka",m:"walk",lg:"步行 5 分鐘",
+  hl:"招牌三道：黑果雞（Ayam Buah Keluak，用發酵過的黑果煮，味道像可可加松露）、娘惹叻沙、亞參魚。",
+  p:"娘惹菜是華人食材加馬來香料，馬六甲的版本比檳城甜。",dur:"1 小時",fee:"約 RM40–60"},
+ {t:"13:00",n:"荷蘭街老屋",e:"JALAN TUN TAN CHENG LOCK",q:"Jalan Tun Tan Cheng Lock Melaka",m:"walk",lg:"步行 3 分鐘",
+  hl:"整條街都是峇峇娘惹富商的老宅立面，門面窄、屋身深，俗稱「一間三進」。中間穿插古董店跟老屋咖啡。",
+  p:"慢慢走，這條比雞場街安靜。",dur:"1.5 小時"},
+ {t:"15:00",n:"馬六甲海峽清真寺",e:"MASJID SELAT",q:"Masjid Selat Melaka",m:"grab",lg:"Grab 15 分鐘・約 RM15",
+  hl:"蓋在人工島上，漲潮時整座像浮在海上。宣禮塔鑲彩色玻璃，夕陽時整面會透光。",
+  p:"要長袖長褲，現場可借長袍。",dur:"1 小時",w:"非穆斯林開放 15:00–16:15。要長袖長褲，現場可借長袍"},
+ {t:"16:30",n:"葡萄牙村",e:"PORTUGUESE SETTLEMENT",q:"Portuguese Settlement Melaka",m:"grab",lg:"Grab 12 分鐘・約 RM12",
+  hl:"葡萄牙人後裔聚居了五百年的村子，還在講一種叫 Kristang 的古葡語。海邊廣場有烤魚攤，可以看夕陽。",
+  p:"從清真寺往東沿海岸，順路。",dur:"1 小時"},
+ {t:"17:30",n:"佳必多沙嗲朱律",e:"CAPITOL SATAY CELUP",q:"Capitol Satay Celup Melaka",m:"grab",lg:"Grab 15 分鐘・約 RM15",
+  hl:"沙嗲朱律是馬六甲獨有的吃法：桌上一鍋滾燙的花生沙嗲醬，自己去冰櫃夾生串下去涮，最後算竹籤結帳。必夾秋葵、鵪鶉蛋、豬肉片、蝦。",
+  p:"17:00 開，早去免排。",dur:"1.5 小時",fee:"約 RM25–35／人",w:"週一公休"},
+ {t:"19:30",n:"雞場街夜市",e:"JONKER WALK · SUN",q:"Jonker Street Melaka",m:"grab",lg:"Grab 8 分鐘・約 RM10",
+  hl:"週日場人比週六少一點，反而好逛。沒吃到的攤位今晚補完。",
+  p:"開到午夜。",dur:"1.5 小時"},
+ {t:"21:00",n:"Jonker 88",e:"CENDOL & LAKSA",q:"Jonker 88 Melaka",m:"walk",lg:"步行 2 分鐘",
+  hl:"招牌是榴槤煎蕊——剉冰淋椰糖椰奶再加一球榴槤肉，還有峇峇叻沙。店面是老屋，牆上掛滿舊照片。",
+  p:"收尾用。",dur:"30 分鐘",fee:"約 RM10–20"}
+ ]},
+
+{d:"9/14",w:"一",iso:"2026-09-14",dr:{lv:"mid",h:"有一站要遮蔽",p:"占美清真寺要遮肩遮膝、脫鞋，入口免費借長袍。興都廟也要脫鞋。其餘全是戶外步行兩公里。",tip:"長褲或長裙 + 有袖上衣，球鞋。"},title:"吉隆坡舊城徒步大縱走",base:"住 Bukit Bintang",mode:"walking",
+ note:"兩公里的連續步行線，中途完全不用搭車。今天雙子星觀景台和基督堂都公休，拿來走戶外剛好。",
+ s:[
+ {t:"09:00",n:"Melaka Sentral 上車",e:"TO TBS",q:"Melaka Sentral",m:"grab",
+  p:"約兩小時到 TBS，提早 30 分鐘到站換票。",fee:"約 RM12–16"},
+ {t:"11:00",n:"TBS 巴士總站",e:"TERMINAL BERSEPADU SELATAN",q:"Terminal Bersepadu Selatan",m:"bus",lg:"長途巴士 2 小時",
+  hl:"設計成像機場一樣，有登機門和電子看板，是全馬最現代的巴士站。",
+  p:"直接接 LRT 與 MRT 的 Bandar Tasik Selatan 站。"},
+ {t:"12:00",n:"Bukit Bintang 放行李",e:"CHECK IN",q:"Bukit Bintang Kuala Lumpur",m:"rail",lg:"LRT 轉單軌 30 分鐘・約 RM5",
+  p:"住這兩晚。吃飯、逛街、換錢都集中，亞羅街走路就到。"},
+ {t:"12:30",n:"Lot 10 Hutong",e:"HERITAGE FOOD COURT",q:"Lot 10 Hutong Kuala Lumpur",m:"walk",lg:"步行 5 分鐘",
+  hl:"商場地下室把吉隆坡幾十家老字號小販整批請進來，冷氣房裡吃到豬肉粉、炒粿條、肉骨茶、雲吞麵。一次解決不用跑遠。",
+  p:"每攤都是原店出來開的分號。",dur:"1 小時",fee:"約 RM20–35"},
+ {t:"14:00",n:"占美清真寺",e:"MASJID JAMEK",q:"Masjid Jamek Kuala Lumpur",m:"rail",lg:"單軌轉 LRT 20 分鐘・約 RM3",
+  hl:"蓋在巴生河與鵝麥河的交匯點上——吉隆坡就是從這個泥濘的河口開始的，城市名字的意思就是「泥濘的匯流處」。摩爾式紅白條紋加洋蔥圓頂。",
+  p:"非穆斯林有開放時段，入口可借長袍。",dur:"30 分鐘",fee:"免費"},
+ {t:"14:30",n:"獨立廣場",e:"DATARAN MERDEKA",q:"Dataran Merdeka Kuala Lumpur",m:"walk",lg:"步行 6 分鐘",
+  hl:"1957 年英國國旗在這裡降下。廣場上那根旗桿約 95 公尺，是世界最高的旗桿之一。對面白色都鐸式建築是皇家雪蘭莪俱樂部。",
+  p:"草坪本身是前板球場。",dur:"30 分鐘",fee:"免費"},
+ {t:"15:00",n:"蘇丹阿都沙末大廈",e:"SULTAN ABDUL SAMAD",q:"Sultan Abdul Samad Building",m:"walk",lg:"步行 1 分鐘",
+  hl:"摩爾式紅磚配銅色洋蔥圓頂，中央那座 40 公尺鐘樓被叫做「大笨鐘」。傍晚打燈後是吉隆坡最經典的一張照片。",
+  p:"就在廣場對面。",dur:"20 分鐘"},
+ {t:"15:20",n:"吉隆坡城市藝廊",e:"KL CITY GALLERY",q:"Kuala Lumpur City Gallery",m:"walk",lg:"步行 4 分鐘",
+  hl:"門口那個 I♥KL 巨型立體字是必拍。裡面有一座用木頭刻出來的城市模型，配燈光音效講吉隆坡從錫礦村變成大都會的過程。",
+  p:"門票通常可以折抵館內消費。",dur:"45 分鐘",fee:"約 RM10"},
+ {t:"15:50",n:"國家紡織博物館",e:"TEXTILE MUSEUM",q:"National Textile Museum Kuala Lumpur",m:"walk",lg:"步行 3 分鐘",
+  hl:"看馬來蠟染 batik 跟金線織的宋吉錦 songket 怎麼做。建築本身是 1905 年的鐵道局大樓，紅白磚拱廊比展品還好看。",
+  p:"免費，冷氣很強。",dur:"40 分鐘",fee:"免費"},
+ {t:"16:30",n:"中央藝術坊",e:"CENTRAL MARKET",q:"Central Market Kuala Lumpur",m:"walk",lg:"步行 8 分鐘",
+  hl:"1888 年的濕貨菜市場改建，藍白色裝飾藝術風立面。裡面按馬來、華人、印度分區賣手工藝品，錫器、蠟染、木雕都在這裡買。",
+  p:"伴手禮一次解決。",dur:"1 小時"},
+ {t:"17:30",n:"鬼仔巷",e:"KWAI CHAI HONG",q:"Kwai Chai Hong Kuala Lumpur",m:"walk",lg:"步行 5 分鐘",
+  hl:"一條翻新的百年後巷，牆上用立體壁畫重現 1960 年代的賭館、當鋪、理髮攤和麻將桌。巷口那道紅燈籠橋是招牌畫面，天黑打燈後完全不同。",
+  p:"旁邊有幾間老屋改的酒吧咖啡。",dur:"30 分鐘",fee:"免費"},
+ {t:"18:00",n:"關帝廟 + 興都廟",e:"TEMPLES",q:"Sri Mahamariamman Temple Kuala Lumpur",m:"walk",lg:"步行 4 分鐘",
+  hl:"斯里瑪哈馬里安曼興都廟的塔門有五層樓高，雕滿兩百多尊彩色神像，是吉隆坡最華麗的一面牆。走三分鐘就是清代風格的關帝廟。",
+  p:"興都廟要脫鞋。",dur:"30 分鐘",fee:"免費"},
+ {t:"18:40",n:"河流交匯處",e:"RIVER OF LIFE",q:"River of Life Kuala Lumpur",m:"walk",lg:"沿河步道 10 分鐘",
+  hl:"天黑後兩河交匯處會噴出藍色霧幕燈光，配上打燈的占美清真寺。整治前這裡是條臭水溝，現在是吉隆坡的夜景招牌。",
+  p:"沿河岸步道往北走回去，這個時間點卡得剛好。",dur:"40 分鐘",fee:"免費"},
+ {t:"20:00",n:"亞羅街",e:"JALAN ALOR",q:"Jalan Alor Kuala Lumpur",m:"rail",lg:"LRT 轉單軌 25 分鐘・或 Grab RM12",
+  hl:"必吃：黃亞華的燒雞翼、烤魔鬼魚、田雞粥、炒粿條，還有整顆挖空裝冰淇淋的椰子。整條街開到半夜。",
+  p:"回 Bukit Bintang 走路就到。",dur:"2 小時",fee:"約 RM30–50"}
+ ]},
+
+{d:"9/15",w:"二",iso:"2026-09-15",dr:{lv:"strict",h:"全程最嚴的一天",p:"黑風洞在 272 階樓梯底下就檢查，必須遮肩遮膝。男生穿到大腿中段的短褲會被擋，沒過關現場買紗籠約 RM15、只收現金。洞內神龕脫鞋、祈禱區脫帽。晚上在河邊看螢火蟲。",tip:"長褲 + 有袖上衣 + 球鞋，另外帶一件薄長袖防蚊。"},title:"黑風洞接力北上",base:"住 Bukit Bintang",mode:"driving",
+ note:"今天最大的改動：黑風洞玩完不回市區，直接請包車司機到停車場接你，往西北開一小時就到瓜拉雪蘭莪，省掉兩小時來回。",
+ s:[
+ {t:"07:30",n:"KL Sentral 搭 KTM",e:"KTM KOMUTER",q:"KL Sentral",m:"rail",
+  p:"約 30 分鐘直達黑風洞站。",fee:"約 RM3"},
+ {t:"08:00",n:"黑風洞",e:"BATU CAVES",q:"Batu Caves Temple",m:"rail",lg:"KTM 30 分鐘・約 RM3",
+  hl:"入口那尊金色室建陀神像高 42.7 公尺，是全世界最高的印度教神像。後面 272 階彩虹階梯通往四億年歷史的石灰岩洞，洞頂有天然開口漏下光柱。",
+  p:"手上不要拿食物，猴子會搶。洞內神龕要脫鞋。",dur:"1.5 小時",fee:"免費",w:"服裝最嚴：樓梯底下就查，要遮肩遮膝。沒過關現場買紗籠約 RM15、只收現金"},
+ {t:"09:30",n:"羅摩劍洞",e:"RAMAYANA CAVE",q:"Ramayana Cave Batu Caves",m:"walk",lg:"步行 5 分鐘",
+  hl:"門口一尊 15 公尺高的綠色哈努曼猴神。洞內沿著岩壁做了整套《羅摩衍那》的立體場景，燈光打得很鮮豔，人少很多。",
+  p:"票價便宜，值得順路進去。",dur:"40 分鐘",fee:"約 RM5"},
+ {t:"11:00",n:"包車上車",e:"PICKUP POINT",q:"Batu Caves car park",m:"walk",lg:"步行 5 分鐘到停車場",
+  p:"訂車時要特別指定「黑風洞停車場上車」，這句話是省下兩小時的關鍵。"},
+ {t:"12:30",n:"瓜拉雪蘭莪午餐",e:"KUALA SELANGOR",q:"Kuala Selangor",m:"grab",lg:"包車 1 小時",
+  p:"小鎮，海鮮跟粿條都不錯。",dur:"1 小時"},
+ {t:"13:30",n:"鷹山",e:"BUKIT MELAWATI",q:"Bukit Melawati Kuala Selangor",m:"grab",lg:"包車 5 分鐘",
+  hl:"山上有一群銀葉猴，臉黑黑的、頭頂一撮呆毛，小猴子是橘色的。牠們不怕人，會直接爬到身上拿長豆。另有荷蘭砲台和 1907 年的 Altingsburg 燈塔。",
+  p:"小火車可能只有週六日營運，先問司機。",dur:"1.5 小時",fee:"小火車約 RM10"},
+ {t:"15:00",n:"適耕莊稻田",e:"SEKINCHAN PADDY",q:"Sekinchan Paddy Field",m:"grab",lg:"包車 40 分鐘",
+  hl:"馬來西亞的米倉，一望無際的稻田加藍天。九月是青蔥期整片翠綠。旁邊的稻米之鄉展覽館可以看從插秧到碾米的全過程。",
+  p:"這段就是拿來填掉原本在漁村乾等的空檔。",dur:"1 小時",fee:"展覽館約 RM5"},
+ {t:"16:00",n:"熱浪沙灘",e:"PANTAI REDANG",q:"Pantai Redang Sekinchan",m:"grab",lg:"包車 10 分鐘",
+  hl:"海邊有一棵掛滿紅色許願牌的許願樹，還有一整排彩色木屋。日落方向剛好對著馬六甲海峽。",
+  p:"適耕莊的海邊。",dur:"45 分鐘"},
+ {t:"17:30",n:"紅樹林餵老鷹",e:"EAGLE FEEDING",q:"Pasir Penambang Jetty Kuala Selangor",m:"grab",lg:"包車 45 分鐘",
+  hl:"船開進紅樹林河道，船家往水面撒雞肉塊，成群的婆羅門鳶從樹梢俯衝下來抓，就在船邊幾公尺。",
+  p:"約 45 分鐘。",dur:"45 分鐘",fee:"約 RM30"},
+ {t:"18:30",n:"巴西不南邦海鮮",e:"PASIR PENAMBANG",q:"Pasir Penambang seafood Kuala Selangor",m:"walk",lg:"步行 3 分鐘",
+  hl:"河口邊一整排海鮮餐廳，招牌是奶油蝦、鹹蛋螃蟹、清蒸紅鰽。窗外就是漁船和夕陽。",
+  p:"這裡是活的漁村，白天有海產乾貨市場。",dur:"1 小時",fee:"每人約 RM50–70"},
+ {t:"20:00",n:"甘榜關丹螢火蟲",e:"FIREFLY PARK",q:"Kampung Kuantan Firefly Park",m:"grab",lg:"包車 25 分鐘",
+  hl:"螢火蟲全部聚在河岸的 berembang 樹上同步閃爍，整棵樹像在呼吸的聖誕燈。這裡用傳統木槳船，每船四人，沒有引擎聲。",
+  p:"9 月中是新月前後，天暗，條件好。船上不能開閃光燈。",dur:"45 分鐘",fee:"約 RM30"},
+ {t:"22:30",n:"回吉隆坡",e:"BACK TO KL",q:"Bukit Bintang Kuala Lumpur",m:"grab",lg:"包車 1 小時",
+  p:"車程約一小時。"}
+ ]},
+
+{d:"9/16",w:"三",iso:"2026-09-16",dr:{lv:"mid",h:"早上要遮蔽",p:"國家清真寺要遮肩遮膝，女生包頭巾，入口免費借長袍。中午之後的行程就沒有限制了。",tip:"早上長褲有袖，下午自由。室內冷氣強，帶薄外套。"},title:"湖濱公園博物館群",base:"住 KL Sentral",mode:"walking",
+ note:"六個點全部擠在同一區，而且就在 KL Sentral 旁邊，今晚剛好住那裡。全天由西往東單向掃，不回頭。今天是馬來西亞日國定假日，人會多。",
+ s:[
+ {t:"08:30",n:"Bukit Bintang 退房",e:"CHECK OUT",q:"Bukit Bintang Kuala Lumpur",m:"",
+  p:"行李直接寄到 KL Sentral 的飯店。"},
+ {t:"09:00",n:"KL Sentral 寄行李",e:"DROP BAGS",q:"KL Sentral",m:"rail",lg:"單軌轉 LRT 20 分鐘・或 Grab RM15",
+  p:"今晚住這，隔天下樓直接搭機場快線。"},
+ {t:"09:30",n:"國家清真寺",e:"MASJID NEGARA",q:"Masjid Negara Kuala Lumpur",m:"walk",lg:"步行 12 分鐘",
+  hl:"屋頂是一個 16 角的藍色摺傘形，象徵十三州加伊斯蘭五大支柱；旁邊 73 公尺的宣禮塔像一支合起來的傘。造型完全不走傳統圓頂路線。",
+  p:"入口借長袍。",dur:"40 分鐘",fee:"免費",w:"非穆斯林開放 09:30–12:30。要遮肩遮膝，女生包頭巾，入口免費借長袍"},
+ {t:"10:30",n:"伊斯蘭藝術博物館",e:"ISLAMIC ARTS MUSEUM",q:"Islamic Arts Museum Malaysia",m:"walk",lg:"步行 5 分鐘",
+  hl:"招牌是建築模型展廳，把麥加禁寺、藍色清真寺、泰姬瑪哈陵按比例做成模型排在一起。館內幾個手繪土耳其磁磚圓頂本身就是展品。",
+  p:"每天開，冷氣很強，適合避午後雷陣雨。",dur:"1.5 小時",fee:"約 RM20"},
+ {t:"11:45",n:"舊吉隆坡火車站",e:"OLD KL RAILWAY STATION",q:"Old Kuala Lumpur Railway Station",m:"walk",lg:"步行 8 分鐘",
+  hl:"1910 年的白色摩爾式建築，一整排尖塔、拱廊和小圓頂。英國建築師蓋的，卻長得像印度蒙兀兒宮殿。",
+  p:"走過去順路，外觀拍照為主。",dur:"20 分鐘"},
+ {t:"12:15",n:"飛禽公園",e:"KL BIRD PARK",q:"KL Bird Park",m:"walk",lg:"步行 12 分鐘・上坡",
+  hl:"全世界最大的自由飛翔式鳥園，用一整張大網把山谷罩起來，鳥直接從你頭上飛過。招牌是犀鳥區、開屏的孔雀，還有定時的餵食秀跟鸚鵡合照。",
+  p:"園區有坡，穿好走的鞋。",dur:"2 小時",fee:"約 RM75"},
+ {t:"14:00",n:"蝴蝶公園",e:"BUTTERFLY PARK",q:"KL Butterfly Park",m:"walk",lg:"步行 5 分鐘",
+  hl:"上萬隻蝴蝶在熱帶花園裡自由飛，還有一區養馬來西亞特有的巨型竹節蟲和獨角仙。",
+  p:"就在鳥園旁邊，體力還夠再進去。",dur:"1 小時",fee:"約 RM25"},
+ {t:"15:00",n:"觀景台二選一",e:"KL TOWER OR TWIN TOWERS",q:"Menara Kuala Lumpur",m:"grab",lg:"Grab 15 分鐘・約 RM12",
+  hl:"KL Tower 的招牌是 Sky Box——一個懸空的透明玻璃箱，腳下就是三百公尺高空，而且從這裡拍雙子星是最漂亮的角度。雙子星的招牌則是 41 樓的空中連橋，站在兩塔中間。",
+  p:"想拍到雙子星本人選 KL Tower；想走進地標裡面就改導航到雙子星。",dur:"2 小時",fee:"約 RM98–110",w:"現在就訂。限時段入場、名額有限，官網賣完可去 Klook 撿。現場票每天 08:30 開賣、賣完就沒"},
+ {t:"18:30",n:"KLCC 音樂噴泉",e:"LAKE SYMPHONY",q:"KLCC Park Kuala Lumpur",m:"grab",lg:"Grab 10 分鐘・或步行 20 分鐘",
+  hl:"整點的 Lake Symphony 水舞，噴泉配燈光跟音樂，背景就是打燈的雙子星。從公園水池這一側拍反射最漂亮。",
+  p:"公園晚上很涼快。",dur:"1 小時",fee:"免費"},
+ {t:"20:00",n:"亞羅街收尾",e:"LAST NIGHT",q:"Jalan Alor Kuala Lumpur",m:"grab",lg:"Grab 10 分鐘・約 RM10",
+  hl:"最後一晚把沒吃到的補完。伴手禮就在 KL Sentral 樓上順手買，白咖啡、肉骨茶包、榴槤糖都有。",
+  p:"不另外排採買時間。",dur:"2 小時"}
+ ]},
+
+{d:"9/17",w:"四",iso:"2026-09-17",dr:{lv:"easy",h:"沒有限制",p:"只有移動。",tip:"穿最舒服的，飛機上會冷，帶外套。"},title:"離境",base:"KLIA T1",mode:"transit",
+ note:"再確認一次：是 T1，不是你來的 T2。",
+ s:[
+ {t:"06:50",n:"KL Sentral 搭 KLIA Ekspres",e:"AIRPORT EXPRESS",q:"KL Sentral KLIA Ekspres",m:"rail",
+  p:"約 28 分鐘。搭這班最保險。",fee:"約 RM55"},
+ {t:"07:30",n:"抵達 KLIA T1",e:"TERMINAL 1",q:"Kuala Lumpur International Airport Terminal 1",m:"rail",lg:"機場快線 28 分鐘",
+  p:"國際線抓起飛前兩小時。"},
+ {t:"09:50",n:"起飛",e:"DEPARTURE",q:"Kuala Lumpur International Airport Terminal 1",m:"",lg:"航廈內",p:""}
+ ]}
+];
+
+const TRANSPORT=[
+["9/12","機場→馬六甲搭<b>直達巴士</b>（要先訂）。古城區<b>全程走路</b>，只有從 Melaka Sentral 進城要叫一次 Grab。"],
+["9/13","上午西岸<b>全程走路</b>，三間廟走完不到十分鐘。下午出城四段都用 <b>Grab</b>，每段 RM10–15。"],
+["9/14","馬六甲→吉隆坡搭<b>長途巴士</b>到 TBS，轉<b>軌道</b>進市區。舊城區兩公里<b>全程走路</b>，中途不用搭車。"],
+["9/15","早上 <b>KTM</b> 直達黑風洞。之後全天<b>包車</b>，這是唯一需要事先安排車輛的一天。"],
+["9/16","湖濱公園六個點<b>全程走路</b>。只有去觀景台和 KLCC 需要兩趟 <b>Grab</b>。"],
+["9/17","<b>KLIA Ekspres</b> 直達，28 分鐘。"]
+];
+const BOOKING=[
+{lv:"must",tag:"一定要訂",n:"MDAC 數位入境卡",when:"9/10 起可填，入境前 3 天內",
+ p:"完全免費。網路上有假網站收費高達 80 美金，只認官方網址。",u:"https://imigresen-online.imi.gov.my/mdac/main"},
+{lv:"must",tag:"一定要訂",n:"klia2 → 馬六甲 直達巴士",when:"現在就訂",
+ p:"9/12 是週六，早班車容易滿。訂 07:00–08:00 那班，到現場櫃檯換紙本票。",u:"https://www.easybook.com/en-my"},
+{lv:"must",tag:"一定要訂",n:"馬六甲住宿 9/12、9/13 兩晚",when:"現在就訂",
+ p:"週末的古城區房間會滿。訂雞場街步行範圍內，晚上回去才方便。"},
+{lv:"must",tag:"一定要訂",n:"9/15 瓜拉雪蘭莪包車或一日團",when:"至少提前一週",
+ p:"這是全程唯一需要安排車的一天。訂的時候講三件事：指定「黑風洞停車場上車」、確認餵老鷹的登船時間、問清楚中間空檔怎麼安排。"},
+{lv:"must",tag:"一定要訂",n:"9/16 觀景台門票",when:"現在就訂",
+ p:"KL Tower 或雙子星擇一。雙子星是限時段入場、每小時名額有限，旺季建議提前 6–8 週。9/16 又是國定假日，現在就要訂。",u:"https://www.petronastwintowers.com.my/"},
+{lv:"rec",tag:"建議先訂",n:"吉隆坡住宿",when:"越早越便宜",
+ p:"9/14、9/15 訂 Bukit Bintang，9/16 那晚換 KL Sentral，隔天下樓就搭機場快線。"},
+{lv:"rec",tag:"建議先訂",n:"馬六甲 → TBS 巴士",when:"出發前幾天",
+ p:"現場買得到，但週日下午的班次容易滿。9/14 早上 09:00 那班先卡位比較安心。"},
+{lv:"rec",tag:"建議先訂",n:"KLIA Ekspres 回程票",when:"出發前",
+ p:"線上買通常比現場便宜，掃 QR 直接進站。",u:"https://www.kliaekspres.com/"},
+{lv:"no",tag:"現場買就好",n:"馬六甲河遊船",when:"",p:"線上訂沒有快速通道，換票一樣要排隊，有 OTA 還停止合作。現場買最單純，櫃檯收現金。"},
+{lv:"no",tag:"現場買就好",n:"峇峇娘惹博物館",when:"",p:"導覽制但不接受預約，10:00 開門前到就好。"},
+{lv:"no",tag:"現場買就好",n:"黑風洞與羅摩劍洞",when:"",p:"主洞免費，羅摩劍洞現場約 RM5。"},
+{lv:"no",tag:"現場買就好",n:"各博物館與飛禽公園",when:"",p:"蘇丹皇宮、海事博物館、城市藝廊、伊斯蘭藝術博物館、飛禽公園都現場買。"},
+{lv:"no",tag:"現場買就好",n:"沙嗲朱律與各夜市",when:"",p:"佳必多不接受訂位，17:00 開門前後到最順。雞場街、亞羅街都是走進去就好。"}
+];
+const DRESS=[
+["三個地方會被擋在門口","黑風洞、國家清真寺、馬六甲海峽清真寺。規則一句話：<b>遮肩、遮膝</b>，男女一樣。"],
+["黑風洞最嚴","檢查點就在 272 階樓梯底下，全天都查。男生穿到大腿中段的運動短褲也會被拒。沒過關現場買紗籠約 RM15，只收現金。"],
+["女生最容易踩雷的是裙子","剛好及膝的裙子可能被拒，現場是志工判斷、標準偏嚴。<b>直接穿長褲</b>，或帶一條薄紗籠隨時圍上。清真寺有免費長袍，但自己帶圍巾方便很多。"],
+["男生至少帶一條長褲","沒長褲黑風洞跟清真寺就進不去，背心整趟用不到。鞋穿球鞋——272 階和聖保羅山石階下雨後會滑。"],
+["市區完全不用擔心","吉隆坡、馬六甲的商場、夜市、餐廳沒有任何服裝限制。"],
+["帶薄外套跟雨衣","室內冷氣非常強，外套整趟都用得到。九月午後雷陣雨，輕便雨衣比雨傘好用。"],
+["現金要備著","紗籠、河遊船櫃檯、夜市、熟食中心都只收現金。"],
+["小東西","插座是英規 Type G 三孔、電壓 240V。時差零。螢火蟲那晚河邊要長袖防蚊，沙嗲朱律別穿淺色。泳裝不用帶。"]
+];
+const MODE={walk:["walking","步行"],grab:["driving","Grab"],rail:["transit","軌道"],bus:["driving","巴士"]};
+const enc=encodeURIComponent;
+const pin=q=>"https://www.google.com/maps/search/?api=1&query="+enc(q);
+const dir=(a,b,m)=>"https://www.google.com/maps/dir/?api=1&origin="+enc(a)+"&destination="+enc(b)+"&travelmode="+m;
+function fullRoute(day){
+  const pts=day.s.map(x=>x.q).filter((v,i,a)=>a.indexOf(v)===i);
+  const mid=pts.slice(1,-1).slice(0,8);
+  let u="https://www.google.com/maps/dir/?api=1&origin="+enc(pts[0])+"&destination="+enc(pts[pts.length-1])+"&travelmode="+day.mode;
+  if(mid.length) u+="&waypoints="+mid.map(enc).join("%7C");
+  return u;
+}
+let state={},cur=0;
+function renderBooking(){
+  let h='<div class="dayhead"><p class="sub">CHECKLIST</p><h2>交通・預約・穿搭</h2>'+
+        '<p>六天裡只有 9/15 需要包車，其他五天靠走路、軌道和 Grab 就夠了。出發前把這頁看一遍。</p></div>';
+  h+='<div class="sechead">每天怎麼移動</div><div class="tsum">';
+  TRANSPORT.forEach(x=>{h+='<div><b>'+x[0]+'</b><div>'+x[1]+'</div></div>';});
+  h+='</div>';
+  h+='<div class="sechead">穿搭與注意事項</div><div class="tsum">';
+  DRESS.forEach(x=>{h+='<div><b>✓</b><div><strong>'+x[0]+'</strong><br>'+x[1]+'</div></div>';});
+  h+='</div>';
+  h+='<div class="sechead">要先訂什麼</div>';
+  BOOKING.forEach(b=>{
+    h+='<div class="bk '+b.lv+'"><span class="tag">'+b.tag+'</span><h3>'+b.n+'</h3><p>'+b.p+'</p>';
+    if(b.when) h+='<span class="when">⏳ '+b.when+'</span>';
+    if(b.u) h+='<a class="go" target="_blank" rel="noopener" href="'+b.u+'">前往訂票</a>';
+    h+='</div>';
+  });
+  document.getElementById("days").innerHTML=h;
+}
+function toggle(k,el){state[k]=!state[k];el.closest(".stop").classList.toggle("done",state[k]);el.textContent=state[k]?"✓":"";}
+function render(){
+  const tabs=document.getElementById("tabs"),box=document.getElementById("days");
+  tabs.innerHTML="";box.innerHTML="";
+  const bt=document.createElement("button");
+  bt.className="tab"+(cur===-1?" on":"");
+  bt.innerHTML="📋<b>行前</b>";
+  bt.onclick=()=>{cur=-1;render();window.scrollTo({top:0,behavior:"smooth"});};
+  tabs.appendChild(bt);
+  DAYS.forEach((day,di)=>{
+    const b=document.createElement("button");
+    b.className="tab"+(di===cur?" on":"");
+    b.innerHTML=day.d+"<b>"+day.w+"</b>";
+    b.onclick=()=>{cur=di;render();window.scrollTo({top:0,behavior:"smooth"});};
+    tabs.appendChild(b);
+  });
+  if(cur===-1){renderBooking();return;}
+  const day=DAYS[cur];
+  let h='<div class="dayhead"><p class="sub">DAY '+(cur+1)+' · '+day.d+' '+day.w+'</p><h2>'+day.title+
+        '</h2><p>'+day.note+'</p><span class="basechip">🛏 '+day.base+'</span>'+
+        (day.dr?'<div class="wear '+day.dr.lv+'"><b>👕 今天穿什麼 · '+day.dr.h+'</b>'+day.dr.p+
+         '<em>建議：'+day.dr.tip+'</em></div>':'')+'</div>'+
+        '<a class="routebtn" target="_blank" rel="noopener" href="'+fullRoute(day)+'">用 Google Map 開啟今天整條路線<small>OPEN FULL DAY ROUTE</small></a><div class="stops">';
+  day.s.forEach((x,i)=>{
+    const prev=i>0?day.s[i-1].q:null,md=MODE[x.m],key=cur+"-"+i;
+    h+='<div class="stop'+(state[key]?" done":"")+'"><div class="dot"><i></i><span class="tt">'+x.t+'</span></div><div class="body">';
+    if(md) h+='<span class="mode '+x.m+'">'+md[1]+'</span>';
+    if(x.lg) h+='<span class="lg">↑ '+x.lg+'</span>';
+    h+='<h3>'+x.n+'</h3><span class="en">'+x.e+'</span>';
+    if(x.p) h+='<p>'+x.p+'</p>';
+    if(x.hl) h+='<div class="hl"><span>招牌</span>'+x.hl+'</div>';
+    if(x.w) h+='<p class="warnline">⚠ '+x.w+'</p>';
+    if(x.dur||x.fee){h+='<div class="chips">';if(x.dur)h+='<span>⏱ '+x.dur+'</span>';if(x.fee)h+='<span>💵 '+x.fee+'</span>';h+='</div>';}
+    h+='<div class="acts"><a class="act" target="_blank" rel="noopener" href="'+pin(x.q)+'">📍 看地圖</a>';
+    if(prev&&md) h+='<a class="act nav" target="_blank" rel="noopener" href="'+dir(prev,x.q,md[0])+'">🧭 從上一站導航</a>';
+    h+='<button class="chk" data-k="'+key+'">'+(state[key]?"✓":"")+'</button></div></div></div>';
+  });
+  h+='</div>';
+  box.innerHTML=h;
+  box.querySelectorAll(".chk").forEach(el=>el.onclick=()=>toggle(el.dataset.k,el));
+}
+(function(){
+  const t=new Date(),iso=t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");
+  const hit=DAYS.findIndex(d=>d.iso===iso),badge=document.getElementById("today");
+  if(hit>=0){cur=hit;badge.textContent="今天是 DAY "+(hit+1)+" · "+DAYS[hit].title;}
+  else{badge.textContent="出發日 9/11 週五晚上到桃園 T1";}
+  render();
+})();
+</script>
+</body>
+</html>
