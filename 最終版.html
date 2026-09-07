@@ -252,17 +252,19 @@ const days = [
       {time:'00:20–05:00', title:'桃園機場 → 吉隆坡 KUL T2', note:'', map:'Kuala Lumpur International Airport Terminal 2'},
       {time:'05:00–07:30', title:'入境、領行李、辦 SIM 卡、換錢', note:'', map:'KLIA2 Terminal'},
       {time:'07:30–10:30', title:'KUL T2 機場長途巴士站 → 馬六甲中央車站', note:'', map:'Melaka Sentral Bus Terminal'},
-      {time:'10:45–11:00', title:'馬六甲中央車站 → Restoran Baba Kaya', note:'Grab 直達餐廳', map:'Restoran Baba Kaya Malaysian Cuisine, 13A Jalan Bunga Raya, Melaka'},
-      {time:'11:00–12:30', title:'午餐：Restoran Baba Kaya', note:'營業 08:00–14:30，一到馬六甲先吃午餐最保險', map:'Restoran Baba Kaya Malaysian Cuisine, 13A Jalan Bunga Raya, Melaka'},
-      {time:'12:30–14:30', title:'腳底＋全身按摩，或先到 Mana Mana Hotel 辦入住／寄放行李', note:'剛落地沒睡，體力不夠可以直接改成休息', map:'Mana Mana Hotel Melaka'},
-      {time:'15:00–18:00', title:'古城打卡：旋轉觀景塔 → 聖地牙哥古城門 → 聖保羅山 → 荷蘭紅屋廣場 → 河岸 City Walk', note:'', map:'St Paul\'s Hill Melaka'},
+      {time:'10:30–10:50', title:'馬六甲中央車站 → 飯店', note:'先寄放行李，Grab 直達', map:'Mana Mana Hotel Melaka'},
+      {time:'11:00–11:45', title:'早午餐：Ah Ma Ho Liao @ Jonker', note:'營業 08:30–17:30，咖椰吐司＋半熟蛋＋南洋咖啡；招牌品項下午容易賣完，建議中午前去', map:'Ah Ma Ho Liao Jonker, 82 Jalan Tokong, Melaka'},
+      {time:'11:50–12:40', title:'午餐：Restoran Baba Kaya', note:'營業 08:00–14:30，指定必吃', map:'Restoran Baba Kaya Malaysian Cuisine, 13A Jalan Bunga Raya, Melaka'},
+      {time:'12:40–14:30', title:'腳底＋全身按摩，或先到 Mana Mana Hotel 辦入住／寄放行李', note:'剛落地沒睡，體力不夠可以直接改成休息', map:'Mana Mana Hotel Melaka'},
+      {time:'15:00–16:20', title:'古城打卡：聖地牙哥古城門 → 聖保羅山 → 荷蘭紅屋廣場', note:'', map:'St Paul\'s Hill Melaka'},
+      {time:'16:20–17:00', title:'馬六甲河岸 City Walk', note:'', map:'Melaka River Walk'},
+      {time:'17:00–18:00', title:'下午茶：Cendol Jam Besar', note:'營業約 10:00–19:30', map:'Cendol Jam Besar, Bandar Hilir, Melaka'},
       {time:'18:00–20:30', title:'晚餐＋逛街：雞場街夜市（Jonker Street）', note:'', map:'Jonker Street Night Market Melaka'},
       {time:'20:30 後', title:'河岸夜景 → 返回 Mana Mana Hotel', note:'', map:'Mana Mana Hotel Melaka'}
     ],
     candidates:[
       {tag:'夜市內順路', name:'陳家蟹肉包 Crab Burger', desc:'就在雞場街夜市攤位裡，逛街時直接加點，評分清單裡最高分。', map:'99 Jalan Hang Jebat, Jonker Walk, Melaka'},
-      {tag:'步行可達', name:'長美號 Chop Tiang Bee Cafe', desc:'雞場街周邊咖啡店，適合白天空檔喝杯咖啡。', map:'Chop Tiang Bee Cafe, Lot 15 Jalan Hang Kasturi, Melaka'},
-      {tag:'夜市周邊', name:'阿嬤好料 @ Jonker', desc:'傳統飲品小吃，逛街時順手買一杯。', map:'Ah Ma Ho Liao Jonker, 82 Jalan Tokong, Melaka'},
+      {tag:'早午餐備案', name:'長美號 Chop Tiang Bee Cafe', desc:'雞場街周邊咖啡店，如果 Ah Ma Ho Liao 太多人可以改來這裡。', map:'Chop Tiang Bee Cafe, Lot 15 Jalan Hang Kasturi, Melaka'},
       {tag:'午餐備案', name:'Restoran Baba Ang', desc:'同樣是娘惹菜，Baba Kaya 客滿或臨時公休時的備案。', map:'Restoran Baba Ang, 310 Jalan Parameswara, Melaka'}
     ]
   },
@@ -271,13 +273,15 @@ const days = [
     theme:'野生動物園 ＋ 清真寺夕陽 ＋ 海南雞飯／沙爹朱律',
     heroMap:'A\'Famosa Safari Wonderland Malaysia',
     stops:[
-      {time:'08:30–09:15', title:'Mana Mana Hotel → A\'Famosa Safari Wonderland', note:'', map:'A\'Famosa Safari Wonderland'},
+      {time:'07:30–08:15', title:'飯店簡單早餐', note:'', map:'Mana Mana Hotel Melaka'},
+      {time:'08:15–09:15', title:'飯店 → A\'Famosa Safari Wonderland', note:'', map:'A\'Famosa Safari Wonderland'},
       {time:'10:00–15:00', title:'A\'Famosa Safari Wonderland 野生動物園', note:'園區內午餐', map:'A\'Famosa Safari Wonderland'},
-      {time:'15:00–16:00', title:'Klebang Beach：Klebang Original Coconut Shake', note:'', map:'Klebang Original Coconut Shake, Klebang Besar, Melaka'},
+      {time:'15:00–16:00', title:'→ Klebang，喝 Klebang Original Coconut Shake', note:'', map:'Klebang Original Coconut Shake, Klebang Besar, Melaka'},
+      {time:'16:00–17:30', title:'Klebang Beach 海邊走走', note:'', map:'Klebang Beach Melaka'},
       {time:'17:30–19:00', title:'馬六甲海峽清真寺（夕陽打卡）', note:'', map:'Malacca Straits Mosque'},
       {time:'19:00–20:15', title:'馬六甲河遊船', note:'', map:'Melaka River Cruise Jetty'},
-      {time:'20:15–21:30', title:'晚餐：沙爹朱律或海南雞飯', note:'Restoran Ban Lee Siang（15:30–24:00）或雞場街周邊海南雞飯', map:'Restoran Ban Lee Siang, 45-E Jalan Ong Kim Wee, Melaka'},
-      {time:'21:30 後', title:'返回 Mana Mana Hotel', note:'', map:'Mana Mana Hotel Melaka'}
+      {time:'20:30–22:00', title:'晚餐：沙爹朱律 或 印度烤餅烤雞 Pak Putra', note:'Restoran Ban Lee Siang（15:30–24:00）／Pak Putra（週日 17:30–01:00，離 Jonker 約 700m，週一公休）二選一', map:'Restoran Ban Lee Siang, 45-E Jalan Ong Kim Wee, Melaka'},
+      {time:'22:00 後', title:'返回 Mana Mana Hotel', note:'', map:'Mana Mana Hotel Melaka'}
     ],
     candidates:[]
   },
@@ -295,18 +299,21 @@ const days = [
       {time:'20:00–21:00', title:'雙子星塔水舞廣場拍夜景', note:'', map:'Petronas Twin Towers KLCC'},
       {time:'21:00 後', title:'返回 BBCC 休息', note:'', map:'Lucentia Premium Suites BBCC, 2 Jalan Hang Tuah, Kuala Lumpur'}
     ],
-    candidates:[]
+    candidates:[
+      {tag:'近 BBCC，週一有開', name:'強記補品 Keong Kee Herbal Soup', desc:'40年老字號藥膳湯，離 BBCC 很近，15:30後營業。不想吃園區晚餐的話，回程可以直接吃這攤，離雙子塔也不遠，吃完再過去看夜景。', map:'Keong Kee Herbal Soup, Changkat Thambi Dollah, Imbi, Kuala Lumpur'}
+    ]
   },
   {
     id:4, weekday:'二', date:'2026/09/15', holiday:false,
     theme:'舊城傳統早餐 ＋ 黑風洞 ＋ 亞羅街烤沙嗲',
     heroMap:'Batu Caves Kuala Lumpur',
     stops:[
-      {time:'08:00–09:15', title:'早餐：何九海南茶店 或 Capitol Cafe', note:'何九海南茶店 07:30–14:30，週二正常營業', map:'Ho Kow Hainam Kopitiam, 1 Jalan Balai Polis, Kuala Lumpur'},
-      {time:'09:30–10:00', title:'出發前往黑風洞', note:'', map:'Batu Caves Kuala Lumpur'},
+      {time:'08:30–09:15', title:'睡晚一點，飯店整裝', note:'前一天走比較多，這天故意排晚一點出發', map:''},
+      {time:'09:15–09:40', title:'早餐：何九海南茶店', note:'營業 07:30–14:30，週二正常營業，快速吃完就出發', map:'Ho Kow Hainam Kopitiam, 1 Jalan Balai Polis, Kuala Lumpur'},
+      {time:'09:40–10:00', title:'出發前往黑風洞', note:'', map:'Batu Caves Kuala Lumpur'},
       {time:'10:00–11:00', title:'黑風洞彩虹階梯＋金色神像打卡', note:'', map:'Batu Caves Kuala Lumpur'},
       {time:'11:00–11:30', title:'返回吉隆坡舊城區', note:'', map:'Kuala Lumpur Old Town'},
-      {time:'11:30–13:00', title:'鬼仔巷＋茨廠街 拍照＋午餐', note:'可吃金蓮記或周邊小吃', map:'Kim Lian Kee, 92 Jalan Hang Lekir, Kuala Lumpur'},
+      {time:'11:30–13:00', title:'鬼仔巷＋茨廠街 拍照＋午餐', note:'金蓮記、周邊小吃都集中在這一區，不用特地換地方', map:'Kim Lian Kee, 92 Jalan Hang Lekir, Kuala Lumpur'},
       {time:'13:00–14:00', title:'中央市場吹冷氣逛街', note:'', map:'Central Market Kuala Lumpur'},
       {time:'14:00–14:30', title:'生命之河＋占美清真寺外觀拍照', note:'', map:'Masjid Jamek Kuala Lumpur'},
       {time:'14:30–18:00', title:'返回 BBCC 休息／LaLaport 商場避暑', note:'建議把這段抓寬鬆一點，當作真正的休息', map:'LaLaport BBCC Kuala Lumpur'},
@@ -315,7 +322,8 @@ const days = [
       {time:'21:00–22:00', title:'返回 BBCC 頂樓無邊際泳池', note:'', map:'Lucentia Premium Suites BBCC, 2 Jalan Hang Tuah, Kuala Lumpur'}
     ],
     candidates:[
-      {tag:'離 BBCC 近', name:'肥肥蟹 Fei Fei Crab', desc:'Pavilion 商場內海鮮餐廳，離 BBCC 走路可到，想吃海鮮大餐可以取代或加開一晚。', map:'Fei Fei Crab Pavilion Elite, 168 Jalan Raja Chulan, Kuala Lumpur'}
+      {tag:'離 BBCC 近', name:'肥肥蟹 Fei Fei Crab', desc:'Pavilion 商場內海鮮餐廳，離 BBCC 走路可到，想吃海鮮大餐可以取代或加開一晚。', map:'Fei Fei Crab Pavilion Elite, 168 Jalan Raja Chulan, Kuala Lumpur'},
+      {tag:'亞羅街周邊', name:'CHAGEE Pavilion', desc:'評分很高的手搖飲連鎖，逛亞羅街前後可以順路買一杯。', map:'CHAGEE Pavilion Kuala Lumpur, 168 Jalan Bukit Bintang, Kuala Lumpur'}
     ]
   },
   {
