@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馬來西亞 6 天 5 夜行程｜馬六甲＋吉隆坡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EDEFE4;
+    --card:#FBF8F1;
+    --ink:#1F2E2B;
+    --ink-soft:#52645E;
+    --pink:#C23B5B;
+    --gold:#D9A441;
+    --jade:#2F6F62;
+    --line:#D8D2C0;
+    --candidate-bg:#F3ECDD;
+    --radius-card:14px;
+    --radius-pill:999px;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC', sans-serif;
+    line-height:1.6;
+    font-feature-settings:"tnum" 1;
+  }
+  h1,h2,h3,.display{
+    font-family:'Noto Serif TC', serif;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--jade);}
+  :focus-visible{outline:2px solid var(--jade); outline-offset:2px;}
+
+  .wrap{max-width:640px; margin:0 auto; padding:0 18px 56px;}
+
+  /* ---------- Header ---------- */
+  header.hero{
+    position:relative;
+    padding:38px 18px 26px;
+    margin-bottom:6px;
+    overflow:hidden;
+    background:var(--jade);
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(217,164,65,.35) 0 2px, transparent 2px 34px),
+      repeating-linear-gradient(-45deg, rgba(194,59,91,.35) 0 2px, transparent 2px 34px);
+    opacity:.6;
+  }
+  header.hero .inner{
+    position:relative; max-width:640px; margin:0 auto; text-align:center; color:#FBF8F1;
+  }
+  header.hero .eyebrow{
+    font-size:.82rem; color:#F3ECDD; opacity:.85; margin-bottom:6px; letter-spacing:.02em;
+  }
+  header.hero h1{
+    font-size:clamp(1.5rem, 5vw, 2.1rem);
+    font-weight:700;
+    color:#FFFDF7;
+  }
+  header.hero p.sub{
+    margin-top:8px; color:#F3ECDD; font-size:.95rem;
+  }
+
+  /* ---------- Day tabs ---------- */
+  nav.day-tabs{
+    position:sticky; top:0; z-index:5;
+    background:var(--bg);
+    padding:12px 0 10px;
+    display:flex; gap:8px; overflow-x:auto;
+    -ms-overflow-style:none; scrollbar-width:none;
+    border-bottom:1px solid var(--line);
+  }
+  nav.day-tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    flex:0 0 auto;
+    display:flex; flex-direction:column; align-items:center;
+    padding:7px 14px;
+    border-radius:var(--radius-pill);
+    border:1px solid var(--line);
+    background:var(--card);
+    cursor:pointer;
+    font-family:'Noto Sans TC', sans-serif;
+    color:var(--ink-soft);
+    font-size:.78rem;
+    line-height:1.25;
+  }
+  .tab strong{font-family:'Noto Serif TC', serif; font-size:.95rem; color:var(--ink); font-weight:600;}
+  .tab.active{
+    background:var(--jade); border-color:var(--jade);
+    color:#F3ECDD;
+  }
+  .tab.active strong{color:#FFFDF7;}
+  .tab.holiday::after{
+    content:"假日";
+    margin-top:2px;
+    font-size:.62rem;
+    padding:1px 6px;
+    border-radius:var(--radius-pill);
+    background:var(--pink);
+    color:#fff;
+  }
+
+  /* ---------- Day panel ---------- */
+  .day-panel{display:none; padding-top:20px; animation:fadeSlide .25s ease;}
+  .day-panel.active{display:block;}
+  @keyframes fadeSlide{
+    from{opacity:0; transform:translateY(6px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .day-panel{animation:none;}
+  }
+
+  .day-head h2{font-size:1.25rem; font-weight:600;}
+  .day-head .date{color:var(--ink-soft); font-size:.85rem; margin-top:2px;}
+  .day-head .theme{margin-top:6px; font-size:.98rem; color:var(--jade); font-weight:500;}
+
+  .holiday-note{
+    margin-top:12px; padding:10px 12px;
+    background:#FBEFE9; border:1px solid var(--pink);
+    border-radius:10px; font-size:.85rem; color:#7A2C40;
+  }
+
+  .map-embed{
+    margin-top:14px; border-radius:var(--radius-card); overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .map-embed iframe{display:block; width:100%; height:180px; border:0;}
+
+  /* ---------- Timeline ---------- */
+  .timeline{
+    position:relative; margin-top:20px; padding-left:20px;
+  }
+  .timeline::before{
+    content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px;
+    background:var(--line);
+  }
+  .stop{position:relative; padding-bottom:20px;}
+  .stop:last-child{padding-bottom:0;}
+  .stop::before{
+    content:""; position:absolute; left:-20px; top:5px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--gold); border:2px solid var(--bg);
+  }
+  .stop__time{
+    font-size:.78rem; color:var(--ink-soft); font-weight:500;
+  }
+  .stop__title{
+    margin-top:2px; font-size:.98rem; font-weight:500;
+  }
+  .stop__note{
+    margin-top:3px; font-size:.83rem; color:var(--ink-soft);
+  }
+  .stop__link{
+    display:inline-flex; align-items:center; gap:4px;
+    margin-top:6px; font-size:.78rem; color:var(--jade);
+    text-decoration:none; border-bottom:1px solid transparent;
+  }
+  .stop__link:hover{border-bottom-color:var(--jade);}
+  .stop__link svg{width:12px; height:12px; flex:0 0 auto;}
+
+  /* ---------- Food candidates ---------- */
+  .candidates{margin-top:28px;}
+  .candidates h3{
+    display:flex; align-items:center; gap:6px;
+    font-size:1.02rem; font-weight:600;
+  }
+  .candidates h3 svg{width:16px; height:16px; color:var(--pink);}
+  .candidates .hint{font-size:.8rem; color:var(--ink-soft); margin-top:2px;}
+
+  .candidate-grid{
+    margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:10px;
+  }
+  @media (max-width:420px){
+    .candidate-grid{grid-template-columns:1fr;}
+  }
+  .candidate{
+    background:var(--candidate-bg);
+    border:1px dashed #B98F3E;
+    border-radius:10px;
+    padding:10px 12px;
+  }
+  .candidate .tag{
+    display:inline-block; font-size:.68rem; color:#7A5416;
+    background:rgba(217,164,65,.28); padding:1px 7px; border-radius:var(--radius-pill);
+    margin-bottom:5px;
+  }
+  .candidate .name{font-weight:600; font-size:.9rem;}
+  .candidate .desc{font-size:.8rem; color:var(--ink-soft); margin-top:3px;}
+  .candidate .stop__link{margin-top:7px;}
+
+  .no-candidate{
+    margin-top:12px; font-size:.85rem; color:var(--ink-soft); font-style:normal;
+  }
+
+  footer{
+    max-width:640px; margin:34px auto 0; padding:0 18px;
+    font-size:.78rem; color:var(--ink-soft);
+  }
+  footer .line{margin-top:6px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <div class="eyebrow">2026/09/12 — 09/17</div>
+    <h1>馬六甲 × 吉隆坡</h1>
+    <p class="sub">6 天 5 夜行程・每站可直接開 Google 地圖導航</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="day-tabs" id="dayTabs"></nav>
+  <div id="dayPanels"></div>
+
+  <footer>
+    <div class="line">路邊攤與小店營業時間偶有臨時變動，出發前建議再次確認。</div>
+    <div class="line">虛線卡片為候補美食，非既定行程，行程有餘裕時再插入即可。</div>
+  </footer>
+</div>
+
+<script>
+const PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-13A7 7 0 0 0 5 9c0 5.42 7 13 7 13Z"/><circle cx="12" cy="9" r="2.4"/></svg>';
+const FORK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v9M9 2v9M6 11c0 1.7 1.3 3 3 3M7.5 14v8M17 2c-1.7 0-3 2-3 5s1.3 5 3 5M17 12v10"/></svg>';
+
+function mapLink(q){
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+}
+function mapEmbed(q){
+  return 'https://maps.google.com/maps?q=' + encodeURIComponent(q) + '&output=embed';
+}
+
+const days = [
+  {
+    id:1, weekday:'六', date:'2026/09/12', holiday:false,
+    theme:'馬六甲古城巡禮 ＋ 指定必吃 Baba Kaya',
+    heroMap:'Jonker Street Melaka',
+    stops:[
+      {time:'00:20–05:00', title:'桃園機場 → 吉隆坡 KUL T2', note:'', map:'Kuala Lumpur International Airport Terminal 2'},
+      {time:'05:00–07:30', title:'入境、領行李、辦 SIM 卡、換錢', note:'', map:'KLIA2 Terminal'},
+      {time:'07:30–10:30', title:'KUL T2 機場長途巴士站 → 馬六甲中央車站', note:'', map:'Melaka Sentral Bus Terminal'},
+      {time:'10:45–11:00', title:'馬六甲中央車站 → Restoran Baba Kaya', note:'Grab 直達餐廳', map:'Restoran Baba Kaya Malaysian Cuisine, 13A Jalan Bunga Raya, Melaka'},
+      {time:'11:00–12:30', title:'午餐：Restoran Baba Kaya', note:'營業 08:00–14:30，一到馬六甲先吃午餐最保險', map:'Restoran Baba Kaya Malaysian Cuisine, 13A Jalan Bunga Raya, Melaka'},
+      {time:'12:30–14:30', title:'腳底＋全身按摩，或先到 Mana Mana Hotel 辦入住／寄放行李', note:'剛落地沒睡，體力不夠可以直接改成休息', map:'Mana Mana Hotel Melaka'},
+      {time:'15:00–18:00', title:'古城打卡：旋轉觀景塔 → 聖地牙哥古城門 → 聖保羅山 → 荷蘭紅屋廣場 → 河岸 City Walk', note:'', map:'St Paul\'s Hill Melaka'},
+      {time:'18:00–20:30', title:'晚餐＋逛街：雞場街夜市（Jonker Street）', note:'', map:'Jonker Street Night Market Melaka'},
+      {time:'20:30 後', title:'河岸夜景 → 返回 Mana Mana Hotel', note:'', map:'Mana Mana Hotel Melaka'}
+    ],
+    candidates:[
+      {tag:'夜市內順路', name:'陳家蟹肉包 Crab Burger', desc:'就在雞場街夜市攤位裡，逛街時直接加點，評分清單裡最高分。', map:'99 Jalan Hang Jebat, Jonker Walk, Melaka'},
+      {tag:'步行可達', name:'長美號 Chop Tiang Bee Cafe', desc:'雞場街周邊咖啡店，適合白天空檔喝杯咖啡。', map:'Chop Tiang Bee Cafe, Lot 15 Jalan Hang Kasturi, Melaka'},
+      {tag:'夜市周邊', name:'阿嬤好料 @ Jonker', desc:'傳統飲品小吃，逛街時順手買一杯。', map:'Ah Ma Ho Liao Jonker, 82 Jalan Tokong, Melaka'},
+      {tag:'午餐備案', name:'Restoran Baba Ang', desc:'同樣是娘惹菜，Baba Kaya 客滿或臨時公休時的備案。', map:'Restoran Baba Ang, 310 Jalan Parameswara, Melaka'}
+    ]
+  },
+  {
+    id:2, weekday:'日', date:'2026/09/13', holiday:false,
+    theme:'野生動物園 ＋ 清真寺夕陽 ＋ 海南雞飯／沙爹朱律',
+    heroMap:'A\'Famosa Safari Wonderland Malaysia',
+    stops:[
+      {time:'08:30–09:15', title:'Mana Mana Hotel → A\'Famosa Safari Wonderland', note:'', map:'A\'Famosa Safari Wonderland'},
+      {time:'10:00–15:00', title:'A\'Famosa Safari Wonderland 野生動物園', note:'園區內午餐', map:'A\'Famosa Safari Wonderland'},
+      {time:'15:00–16:00', title:'Klebang Beach：Klebang Original Coconut Shake', note:'', map:'Klebang Original Coconut Shake, Klebang Besar, Melaka'},
+      {time:'17:30–19:00', title:'馬六甲海峽清真寺（夕陽打卡）', note:'', map:'Malacca Straits Mosque'},
+      {time:'19:00–20:15', title:'馬六甲河遊船', note:'', map:'Melaka River Cruise Jetty'},
+      {time:'20:15–21:30', title:'晚餐：沙爹朱律或海南雞飯', note:'Restoran Ban Lee Siang（15:30–24:00）或雞場街周邊海南雞飯', map:'Restoran Ban Lee Siang, 45-E Jalan Ong Kim Wee, Melaka'},
+      {time:'21:30 後', title:'返回 Mana Mana Hotel', note:'', map:'Mana Mana Hotel Melaka'}
+    ],
+    candidates:[]
+  },
+  {
+    id:3, weekday:'一', date:'2026/09/14', holiday:false,
+    theme:'馬六甲 → 吉隆坡 ＋ Sunway Lagoon ＋ 雙子塔夜景',
+    heroMap:'Sunway Lagoon Theme Park',
+    stops:[
+      {time:'08:30–10:30', title:'長途巴士至吉隆坡 TBS 站', note:'', map:'Terminal Bersepadu Selatan TBS'},
+      {time:'10:30–11:00', title:'TBS 站 → Lucentia Residences @ BBCC', note:'', map:'Lucentia Premium Suites BBCC, 2 Jalan Hang Tuah, Kuala Lumpur'},
+      {time:'11:00–11:30', title:'BBCC 寄放行李', note:'', map:'Lucentia Premium Suites BBCC, 2 Jalan Hang Tuah, Kuala Lumpur'},
+      {time:'11:30–12:00', title:'BBCC → Sunway Lagoon', note:'', map:'Sunway Lagoon Theme Park'},
+      {time:'12:00–18:00', title:'Sunway Lagoon 水上樂園＋設施', note:'', map:'Sunway Lagoon Theme Park'},
+      {time:'18:00–20:00', title:'園區晚餐 / Night Park', note:'園區內禁帶外食，內有多家餐廳', map:'Sunway Lagoon Theme Park'},
+      {time:'20:00–21:00', title:'雙子星塔水舞廣場拍夜景', note:'', map:'Petronas Twin Towers KLCC'},
+      {time:'21:00 後', title:'返回 BBCC 休息', note:'', map:'Lucentia Premium Suites BBCC, 2 Jalan Hang Tuah, Kuala Lumpur'}
+    ],
+    candidates:[]
+  },
+  {
+    id:4, weekday:'二', date:'2026/09/15', holiday:false,
+    theme:'舊城傳統早餐 ＋ 黑風洞 ＋ 亞羅街烤沙嗲',
+    heroMap:'Batu Caves Kuala Lumpur',
+    stops:[
+      {time:'08:00–09:15', title:'早餐：何九海南茶店 或 Capitol Cafe', note:'何九海南茶店 07:30–14:30，週二正常營業', map:'Ho Kow Hainam Kopitiam, 1 Jalan Balai Polis, Kuala Lumpur'},
+      {time:'09:30–10:00', title:'出發前往黑風洞', note:'', map:'Batu Caves Kuala Lumpur'},
+      {time:'10:00–11:00', title:'黑風洞彩虹階梯＋金色神像打卡', note:'', map:'Batu Caves Kuala Lumpur'},
+      {time:'11:00–11:30', title:'返回吉隆坡舊城區', note:'', map:'Kuala Lumpur Old Town'},
+      {time:'11:30–13:00', title:'鬼仔巷＋茨廠街 拍照＋午餐', note:'可吃金蓮記或周邊小吃', map:'Kim Lian Kee, 92 Jalan Hang Lekir, Kuala Lumpur'},
+      {time:'13:00–14:00', title:'中央市場吹冷氣逛街', note:'', map:'Central Market Kuala Lumpur'},
+      {time:'14:00–14:30', title:'生命之河＋占美清真寺外觀拍照', note:'', map:'Masjid Jamek Kuala Lumpur'},
+      {time:'14:30–18:00', title:'返回 BBCC 休息／LaLaport 商場避暑', note:'建議把這段抓寬鬆一點，當作真正的休息', map:'LaLaport BBCC Kuala Lumpur'},
+      {time:'18:00–19:30', title:'獨立廣場＋蘇丹阿都沙末大廈夕陽夜景', note:'', map:'Merdeka Square Kuala Lumpur'},
+      {time:'19:30–21:00', title:'晚餐：亞羅街夜市 黃亞華小食店', note:'炭烤沙嗲串與烤雞翅', map:'Jalan Alor Night Market Kuala Lumpur'},
+      {time:'21:00–22:00', title:'返回 BBCC 頂樓無邊際泳池', note:'', map:'Lucentia Premium Suites BBCC, 2 Jalan Hang Tuah, Kuala Lumpur'}
+    ],
+    candidates:[
+      {tag:'離 BBCC 近', name:'肥肥蟹 Fei Fei Crab', desc:'Pavilion 商場內海鮮餐廳，離 BBCC 走路可到，想吃海鮮大餐可以取代或加開一晚。', map:'Fei Fei Crab Pavilion Elite, 168 Jalan Raja Chulan, Kuala Lumpur'}
+    ]
+  },
+  {
+    id:5, weekday:'三', date:'2026/09/16', holiday:true,
+    theme:'新峰肉骨茶 ＋ 粉紅清真寺 ＋ District 21 ＋ 康樂夜市',
+    heroMap:'Putra Mosque Putrajaya',
+    stops:[
+      {time:'08:30–09:45', title:'早餐：新峰肉骨茶', note:'營業 07:00–23:00', map:'Sun Fong Bak Kut Teh, Medan Imbi, Kuala Lumpur'},
+      {time:'10:30–11:15', title:'出發前往布城粉紅清真寺', note:'', map:'Putra Mosque Putrajaya'},
+      {time:'11:15–11:45', title:'參觀粉紅清真寺', note:'非穆斯林開放至約 12:30，假日建議現場再確認一次', map:'Putra Mosque Putrajaya'},
+      {time:'11:45–12:00', title:'前往 IOI City Mall', note:'', map:'IOI City Mall Putrajaya'},
+      {time:'12:00–13:00', title:'IOI City Mall 午餐', note:'', map:'IOI City Mall Putrajaya'},
+      {time:'13:00–15:30', title:'District 21 室內極限攀爬體驗', note:'', map:'District 21 Kuala Lumpur'},
+      {time:'15:30–16:30', title:'返回 BBCC 飯店', note:'', map:'Lucentia Premium Suites BBCC, 2 Jalan Hang Tuah, Kuala Lumpur'},
+      {time:'16:30–18:30', title:'飯店沖洗休息／換裝', note:'', map:''},
+      {time:'19:00–21:30', title:'康樂星期三夜市（Pasar Malam Taman Connaught）', note:'固定週三營業不受假日影響，但今天是國定假日人潮會更多，建議提早出發', map:'Pasar Malam Taman Connaught, Cheras, Kuala Lumpur'},
+      {time:'21:30–22:00', title:'返回 BBCC', note:'', map:'Lucentia Premium Suites BBCC, 2 Jalan Hang Tuah, Kuala Lumpur'}
+    ],
+    candidates:[
+      {tag:'車程約30分', name:'Village Park Restaurant', desc:'吉隆坡人氣椰漿飯地標，離市區稍遠，特別想吃可安排，行程滿的話可以省略。', map:'Village Park Restaurant, 5 Jalan SS 21/37, Petaling Jaya'}
+    ]
+  },
+  {
+    id:6, weekday:'四', date:'2026/09/17', holiday:false,
+    theme:'吉隆坡 → 宿霧',
+    heroMap:'KLIA Terminal 1',
+    stops:[
+      {time:'05:50–06:40', title:'起床 Check-out，前往 KL Sentral', note:'', map:'KL Sentral'},
+      {time:'07:00–07:30', title:'KL Sentral → KLIA T1', note:'機場快線', map:'KLIA Ekspres KL Sentral'},
+      {time:'07:30', title:'抵達 KLIA T1 辦理登機', note:'', map:'Kuala Lumpur International Airport Terminal 1'},
+      {time:'09:50', title:'飛往宿霧', note:'', map:'Kuala Lumpur International Airport Terminal 1'}
+    ],
+    candidates:[]
+  }
+];
+
+function stopHTML(s){
+  const link = s.map ? `<a class="stop__link" href="${mapLink(s.map)}" target="_blank" rel="noopener">${PIN}在地圖開啟</a>` : '';
+  const note = s.note ? `<div class="stop__note">${s.note}</div>` : '';
+  return `<div class="stop">
+      <div class="stop__time">${s.time}</div>
+      <div class="stop__title">${s.title}</div>
+      ${note}
+      ${link}
+    </div>`;
+}
+
+function candidateHTML(c){
+  return `<div class="candidate">
+      <span class="tag">${c.tag}</span>
+      <div class="name">${c.name}</div>
+      <div class="desc">${c.desc}</div>
+      <a class="stop__link" href="${mapLink(c.map)}" target="_blank" rel="noopener">${PIN}在地圖開啟</a>
+    </div>`;
+}
+
+function dayPanelHTML(d){
+  const holidayNote = d.holiday
+    ? `<div class="holiday-note">今天是「Hari Malaysia 馬來西亞日」國定假日，熱門景點與夜市人潮會比平常多，行程之間建議多留緩衝時間。</div>`
+    : '';
+  const candidatesBlock = d.candidates.length
+    ? `<div class="candidates">
+         <h3>${FORK}附近美食候補</h3>
+         <div class="hint">虛線卡片，行程有餘裕再插入，不影響原本安排。</div>
+         <div class="candidate-grid">${d.candidates.map(candidateHTML).join('')}</div>
+       </div>`
+    : '';
+  return `<section class="day-panel" id="day-${d.id}">
+      <div class="day-head">
+        <h2>Day ${d.id}｜${d.date}（星期${d.weekday}）</h2>
+        <div class="theme">${d.theme}</div>
+      </div>
+      ${holidayNote}
+      <div class="map-embed"><iframe src="${mapEmbed(d.heroMap)}" loading="lazy" title="Day ${d.id} 地圖"></iframe></div>
+      <div class="timeline">${d.stops.map(stopHTML).join('')}</div>
+      ${candidatesBlock}
+    </section>`;
+}
+
+const tabsEl = document.getElementById('dayTabs');
+const panelsEl = document.getElementById('dayPanels');
+
+tabsEl.innerHTML = days.map(d =>
+  `<div class="tab${d.holiday ? ' holiday' : ''}" data-day="${d.id}"><strong>Day ${d.id}</strong>${d.weekday}</div>`
+).join('');
+
+panelsEl.innerHTML = days.map(dayPanelHTML).join('');
+
+function showDay(id){
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.day == id));
+  document.querySelectorAll('.day-panel').forEach(p => p.classList.toggle('active', p.id === 'day-' + id));
+}
+
+tabsEl.addEventListener('click', e => {
+  const tab = e.target.closest('.tab');
+  if (!tab) return;
+  showDay(tab.dataset.day);
+});
+
+showDay(1);
+</script>
+</body>
+</html>
